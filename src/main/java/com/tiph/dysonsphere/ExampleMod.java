@@ -1,4 +1,4 @@
-package testpackage;
+package com.tiph.dysonsphere;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
