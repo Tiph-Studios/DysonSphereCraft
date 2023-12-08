@@ -17,6 +17,12 @@ import java.util.stream.Collectors;
 @Mod.EventBusSubscriber(modid = ExampleMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Config
 {
+
+    private Config() {
+        // Do not instantiate
+        throw new UnsupportedOperationException("Do not instantiate");
+    }
+
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
     private static final ModConfigSpec.BooleanValue LOG_DIRT_BLOCK = BUILDER
@@ -38,10 +44,10 @@ public class Config
 
     static final ModConfigSpec SPEC = BUILDER.build();
 
-    public static boolean logDirtBlock;
-    public static int magicNumber;
-    public static String magicNumberIntroduction;
-    public static Set<Item> items;
+    private static boolean logDirtBlock;
+    private static int magicNumber;
+    private static String magicNumberIntroduction;
+    private static Set<Item> items;
 
     private static boolean validateItemName(final Object obj)
     {
@@ -59,5 +65,21 @@ public class Config
         items = ITEM_STRINGS.get().stream()
                 .map(itemName -> BuiltInRegistries.ITEM.get(new ResourceLocation(itemName)))
                 .collect(Collectors.toSet());
+    }
+
+    public static boolean isLogDirtBlock() {
+        return logDirtBlock;
+    }
+
+    public static int getMagicNumber() {
+        return magicNumber;
+    }
+
+    public static String getMagicNumberIntroduction() {
+        return magicNumberIntroduction;
+    }
+
+    public static Set<Item> getItems() {
+        return items;
     }
 }
