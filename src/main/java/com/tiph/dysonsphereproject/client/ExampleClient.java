@@ -1,4 +1,4 @@
-package com.tiph.dysonsphere.client;
+package com.tiph.dysonsphereproject.client;
 
 public class ExampleClient {
   private ExampleClient() {

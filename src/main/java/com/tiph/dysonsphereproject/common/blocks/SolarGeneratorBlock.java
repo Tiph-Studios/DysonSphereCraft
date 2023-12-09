@@ -1,4 +1,4 @@
-package com.tiph.dysonsphere.common.blocks;
+package com.tiph.dysonsphereproject.common.blocks;
 
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
