@@ -1,4 +1,4 @@
-DYSON DOMINATION for Minecraft 1.20
+DYSON DOMINATION for Minecraft 1.20 :)
 =====================
 Dyson Domination is a neo-forge minecraft mod that adds late game RF power generation in the form of a Dyson Sphere.
 
