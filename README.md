@@ -2,6 +2,8 @@ DYSON DOMINATION for Minecraft 1.20 :)
 =====================
 Dyson Domination is a neo-forge minecraft mod that adds late game RF power generation in the form of a Dyson Sphere. 
 
+Kyle is a big dumb loser. 
+
 Start out with simple solar panels and work your way up to solar sails. Expand out to a solar swarm, then architect your dream dyson sphere to harness the true energy of the sun.
 
 This galactic structure will have you at the edge of your seat with new ways to generate, store, and transmit un-real amounts of POWER.
