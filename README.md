@@ -1,6 +1,6 @@
-DYSON DOMINATION for Minecraft 1.20 :)
+DYSON SPHERE PROJECT for Minecraft 1.20 :)
 =====================
-Dyson Domination is a neo-forge minecraft mod that adds late game RF power generation in the form of a Dyson Sphere.
+Dyson Sphere Project is a neo-forge minecraft mod that adds late game RF power generation in the form of a Dyson Sphere.
 
 Start out with simple solar panels and work your way up to solar sails. Expand out to a solar swarm, then architect your dream dyson sphere to harness the true energy of the sun.
 
@@ -12,7 +12,7 @@ We use the [google java standard](https://google.github.io/styleguide/javaguide.
 Although this is honor system (for now), it is highly recommended you use the SonarLint plugin in your IDE of choice and wash your smelly code.
 
 # License
-Dyson Domination is licensed under the Apache 2.0 license. You may use it in modpacks, review, or any other form so long as you abide by the terms in the license
+Dyson Sphere Project is licensed under the Apache 2.0 license. You may use it in modpacks, review, or any other form so long as you abide by the terms in the license
 
 Copyright 2023 Tiph Studios
 
