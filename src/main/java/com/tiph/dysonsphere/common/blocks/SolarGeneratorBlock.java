@@ -8,9 +8,9 @@ public class SolarGeneratorBlock extends DysonBlock {
 
   private static final float DESTROY_TIME = 2.0f;
 
-  public static final DeferredBlock<SolarGeneratorBlock> SOLAR_GENERATOR_1_BLOCK =
+  public static final DeferredBlock<SolarGeneratorBlock> SOLAR_GENERATOR_BLOCK =
       DysonBlock.registerBlock(
-          "solar_generator_1",
+          "solar_generator",
           () ->
               new SolarGeneratorBlock(
                   BlockBehaviour.Properties.of().destroyTime(DESTROY_TIME).sound(SoundType.METAL)));

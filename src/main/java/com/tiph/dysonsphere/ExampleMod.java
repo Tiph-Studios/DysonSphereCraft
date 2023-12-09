@@ -115,7 +115,7 @@ public class ExampleMod {
     //            event.accept(EXAMPLE_BLOCK_ITEM);
     //        } else
     if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
-      event.accept(SolarGeneratorBlock.SOLAR_GENERATOR_1_BLOCK);
+      event.accept(SolarGeneratorBlock.SOLAR_GENERATOR_BLOCK);
     }
   }
 
