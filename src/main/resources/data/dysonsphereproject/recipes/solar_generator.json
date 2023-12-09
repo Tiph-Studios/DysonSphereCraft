@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "redstone",
+  "category": "misc",
   "pattern": [
     "MMM",
     "RRR",
@@ -8,7 +8,7 @@
   ],
   "key": {
     "M": {
-      "item": "examplemod:mirror"
+      "item": "dysonsphereproject:mirror"
     },
     "R": {
       "item": "minecraft:redstone"
