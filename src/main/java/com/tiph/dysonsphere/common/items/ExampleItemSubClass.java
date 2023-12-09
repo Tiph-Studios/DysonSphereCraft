@@ -7,7 +7,7 @@ public class ExampleItemSubClass extends DysonItem {
   //            SolarGeneratorBlock.SOLAR_GENERATOR_1_BLOCK);
 
   public static void init() {
-    // Instantiate block items
+    // Instantiate items
   }
 
   public ExampleItemSubClass(Properties p) {
