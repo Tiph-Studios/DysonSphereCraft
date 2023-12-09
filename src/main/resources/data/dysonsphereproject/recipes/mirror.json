@@ -11,10 +11,11 @@
   },
   "pattern": [
     "GGG",
-    "SSS"
+    "SSS",
+    "   "
   ],
   "result": {
-    "item": "examplemod:mirror",
+    "item": "dysonsphereproject:mirror",
     "count": "3"
   },
   "show_notification": true
