@@ -7,7 +7,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public abstract class DysonItem extends Item {
 
-  public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(DysonSphereProject.MODID);
+  public static final DeferredRegister.Items ITEMS =
+      DeferredRegister.createItems(DysonSphereProject.MODID);
 
   public DysonItem(final Properties p) {
     super(p);
