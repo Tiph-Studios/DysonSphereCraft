@@ -26,6 +26,7 @@ public abstract class DysonBlock extends Block {
       final String name, final DeferredBlock<T> block) {
     return DysonItem.ITEMS.registerSimpleBlockItem(name, block);
   }
+
   public DysonBlock(final Properties p) {
     super(p);
   }
