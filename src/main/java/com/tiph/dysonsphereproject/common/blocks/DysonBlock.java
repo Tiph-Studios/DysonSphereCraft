@@ -1,7 +1,7 @@
-package com.tiph.dysonsphere.common.blocks;
+package com.tiph.dysonsphereproject.common.blocks;
 
-import com.tiph.dysonsphere.ExampleMod;
-import com.tiph.dysonsphere.common.items.DysonItem;
+import com.tiph.dysonsphereproject.DysonSphereProject;
+import com.tiph.dysonsphereproject.common.items.DysonItem;
 import java.util.function.Supplier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
@@ -13,7 +13,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public abstract class DysonBlock extends Block {
 
   public static final DeferredRegister.Blocks BLOCKS =
-      DeferredRegister.createBlocks(ExampleMod.MODID);
+      DeferredRegister.createBlocks(DysonSphereProject.MODID);
 
   public static <T extends Block> DeferredBlock<T> registerBlock(
       final String name, Supplier<T> block) {
