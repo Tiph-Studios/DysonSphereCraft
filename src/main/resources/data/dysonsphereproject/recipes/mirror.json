@@ -1,22 +1,23 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
+  "category": "redstone",
   "key": {
     "G": {
       "item": "minecraft:glass_pane"
     },
     "S": {
-      "item": "minecraft:oak_slab"
+      "tag": "minecraft:wooden_slabs"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
     }
   },
   "pattern": [
     "GGG",
-    "SSS",
-    "   "
+    "SIS"
   ],
   "result": {
     "item": "dysonsphereproject:mirror",
-    "count": "3"
-  },
-  "show_notification": true
+    "count": 3
+  }
 }
