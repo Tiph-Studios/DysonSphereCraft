@@ -11,7 +11,7 @@ public abstract class DysonItem extends Item {
   public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ExampleMod.MODID);
 
 
-      public static final DeferredItem<Item> MIRROR_ITEM = ITEMS.registerSimpleItem("mirror_1",
+      public static final DeferredItem<Item> MIRROR_ITEM = ITEMS.registerSimpleItem("mirror",
               new Item.Properties());
 
   public DysonItem(final Properties p) {

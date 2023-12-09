@@ -116,6 +116,7 @@ public class ExampleMod {
     //        } else
     if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
       event.accept(SolarGeneratorBlock.SOLAR_GENERATOR_BLOCK);
+      event.accept(DysonItem.MIRROR_ITEM);
     }
   }
 
