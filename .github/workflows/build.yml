@@ -19,7 +19,7 @@ jobs:
         with:
           args: "--replace"
           skip-commit: true
-        run: git --no-pager diff --exit-code
+      - run: git --no-pager diff --exit-code
 
       - name: Setup JDK 17
         uses: actions/setup-java@v2
