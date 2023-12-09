@@ -1,7 +1,7 @@
 package com.tiph.dysonsphereproject.client;
 
-public class ExampleClient {
-  private ExampleClient() {
+public class DysonClientClient {
+  private DysonClientClient() {
     // To be implemented.
   }
 }
