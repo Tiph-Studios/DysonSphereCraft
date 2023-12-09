@@ -15,7 +15,7 @@ public abstract class DysonItem extends Item {
 
     public static void register(final IEventBus eventBus) {
         //todo this is braindead
-        SolarGeneratorBlockItem.init();
+        SolarGeneratorItem.init();
         ITEMS.register(eventBus);
     }
 }

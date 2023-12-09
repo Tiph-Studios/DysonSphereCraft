@@ -2,8 +2,8 @@ package com.tiph.dysonsphere;
 
 import com.mojang.logging.LogUtils;
 import com.tiph.dysonsphere.common.blocks.DysonBlock;
+import com.tiph.dysonsphere.common.blocks.SolarGeneratorBlock;
 import com.tiph.dysonsphere.common.items.DysonItem;
-import com.tiph.dysonsphere.common.items.SolarGeneratorBlockItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -100,7 +100,7 @@ public class ExampleMod
 //            event.accept(EXAMPLE_BLOCK_ITEM);
 //        } else
         if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
-            event.accept(SolarGeneratorBlockItem.SOLAR_GENERATOR_1_BLOCK_ITEM);
+            event.accept(SolarGeneratorBlock.SOLAR_GENERATOR_1_BLOCK);
         }
     }
 
