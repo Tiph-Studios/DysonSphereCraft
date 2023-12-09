@@ -74,7 +74,7 @@ public class ExampleMod {
                           output.accept(
                               EXAMPLE_ITEM
                                   .get()) // Add the example item to the tab. For your own tabs,
-                                          // this method is preferred over the event
+                      // this method is preferred over the event
                       )
                   .build());
   // Directly reference a slf4j logger
