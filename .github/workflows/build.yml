@@ -25,7 +25,9 @@ jobs:
         with:
           args: "--replace"
           skip-commit: true
-      - run: git --no-pager diff --exit-code
+        
+      - name: Show formatting diff
+        run: git --no-pager diff --exit-code
 
       - name: Build with Gradle
         uses: gradle/gradle-build-action@v2
