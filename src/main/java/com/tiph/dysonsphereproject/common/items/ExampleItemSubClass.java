@@ -1,4 +1,4 @@
-package com.tiph.dysonsphere.common.items;
+package com.tiph.dysonsphereproject.common.items;
 
 public class ExampleItemSubClass extends DysonItem {
 
