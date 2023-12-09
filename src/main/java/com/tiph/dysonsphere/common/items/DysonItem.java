@@ -7,15 +7,15 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public abstract class DysonItem extends Item {
 
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ExampleMod.MODID);
+  public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ExampleMod.MODID);
 
-    public DysonItem(final Properties p) {
-        super(p);
-    }
+  public DysonItem(final Properties p) {
+    super(p);
+  }
 
-    public static void register(final IEventBus eventBus) {
-        //todo this is braindead
-        ExampleItemSubClass.init();
-        ITEMS.register(eventBus);
-    }
+  public static void register(final IEventBus eventBus) {
+    // todo this is braindead
+    ExampleItemSubClass.init();
+    ITEMS.register(eventBus);
+  }
 }
