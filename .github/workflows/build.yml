@@ -20,12 +20,14 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
         
-      - name: Check formatting
+      - name: Checkout and run formatter
         uses: axel-op/googlejavaformat-action@v3
         with:
           args: "--replace"
           skip-commit: true
-      - run: git --no-pager diff --exit-code
+          
+      - name: Verify formatting
+        run: git --no-pager diff --exit-code
 
       - name: Build with Gradle
         uses: gradle/gradle-build-action@v2
