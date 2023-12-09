@@ -9,7 +9,7 @@ This galactic structure will have you at the edge of your seat with new ways to 
 # Contributing
 We use the [google java standard](https://google.github.io/styleguide/javaguide.html) as our formatting standard. All code will be rejected if it does not conform.
 
-Although this is honor system (for now), it is highly recommended you use the SonarLint plugin in your IDE of choise and wash your smelly code.
+Although this is honor system (for now), it is highly recommended you use the SonarLint plugin in your IDE of choice and wash your smelly code.
 
 # License
 Dyson Domination is licensed under the Apache 2.0 license. You may use it in modpacks, review, or any other form so long as you abide by the terms in the license
