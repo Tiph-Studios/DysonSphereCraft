@@ -16,33 +16,34 @@ import org.jetbrains.annotations.NotNull;
 
 public class DysonRecipeProvider extends RecipeProvider implements IConditionBuilder {
 
-    public DysonRecipeProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(packOutput, lookupProvider);
-    }
+  public DysonRecipeProvider(
+      PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+    super(packOutput, lookupProvider);
+  }
 
-    @Override
-    protected void buildRecipes(@NotNull RecipeOutput recipeOutput) {
-        // Mirror
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, DysonItem.MIRROR_ITEM)
-                .pattern("GGG")
-                .pattern("SIS")
-                .define('G', Items.GLASS_PANE)
-                .define('S', ItemTags.WOODEN_SLABS)
-                .define('I', Items.IRON_INGOT)
-//                .unlockedBy()
-                .save(recipeOutput);
+  @Override
+  protected void buildRecipes(@NotNull RecipeOutput recipeOutput) {
+    // Mirror
+    ShapedRecipeBuilder.shaped(RecipeCategory.MISC, DysonItem.MIRROR_ITEM)
+        .pattern("GGG")
+        .pattern("SIS")
+        .define('G', Items.GLASS_PANE)
+        .define('S', ItemTags.WOODEN_SLABS)
+        .define('I', Items.IRON_INGOT)
+        .unlockedBy(getHasName(Items.GLASS_PANE), has(Items.GLASS_PANE))
+        .save(recipeOutput);
 
-        // Solar Generator
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SolarGeneratorBlock.SOLAR_GENERATOR_BLOCK)
-                .pattern("MMM")
-                .pattern("RRR")
-                .pattern("PPP")
-                .define('M', DysonItem.MIRROR_ITEM)
-                .define('R', Items.REDSTONE)
-                .define('P', ItemTags.PLANKS)
-                .save(recipeOutput);
-
-
-
-    }
+    // Solar Generator
+    ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SolarGeneratorBlock.SOLAR_GENERATOR_BLOCK)
+        .pattern("MMM")
+        .pattern("RRR")
+        .pattern("PPP")
+        .define('M', DysonItem.MIRROR_ITEM)
+        .define('R', Items.REDSTONE)
+        .define('P', ItemTags.PLANKS)
+        .unlockedBy(
+            getHasName(DysonItem.MIRROR_ITEM.get()),
+            has(DysonItem.MIRROR_ITEM.get()))
+        .save(recipeOutput);
+  }
 }

@@ -18,7 +18,7 @@ public class DysonItemModelProvider extends ItemModelProvider {
 
   @Override
   protected void registerModels() {
-    simpleItem(DysonItem.MIRROR_ITEM);
+    this.basicItem(DysonItem.MIRROR_ITEM.get());
   }
 
   private ItemModelBuilder simpleItem(DeferredItem<Item> item) {
