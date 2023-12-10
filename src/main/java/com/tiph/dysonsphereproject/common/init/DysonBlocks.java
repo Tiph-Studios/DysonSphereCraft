@@ -15,7 +15,8 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public class DysonBlocks extends Block {
+public class DysonBlocks {
+  private DysonBlocks() {}
 
   public static final DeferredRegister.Blocks BLOCKS =
       DeferredRegister.createBlocks(DysonSphereProject.MODID);
@@ -56,10 +57,6 @@ public class DysonBlocks extends Block {
   private static <T extends Block> DeferredItem<BlockItem> registerBlockItem(
       final String name, final DeferredBlock<T> block) {
     return DysonItems.ITEMS.registerSimpleBlockItem(name, block);
-  }
-
-  public DysonBlocks(final Properties p) {
-    super(p);
   }
 
   public static void register(final IEventBus eventBus) {

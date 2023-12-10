@@ -10,7 +10,8 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public class DysonItems extends Item {
+public class DysonItems {
+  private DysonItems() {}
 
   public static final DeferredRegister.Items ITEMS =
       DeferredRegister.createItems(DysonSphereProject.MODID);
@@ -26,10 +27,6 @@ public class DysonItems extends Item {
 
   private static DeferredItem<Item> registerBasicItem(BasicItems item) {
     return ITEMS.registerSimpleItem(item.getRegistrySuffix(), new Item.Properties());
-  }
-
-  public DysonItems(final Properties p) {
-    super(p);
   }
 
   public static void register(final IEventBus eventBus) {
