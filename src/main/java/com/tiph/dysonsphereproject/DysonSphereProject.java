@@ -68,7 +68,7 @@ public class DysonSphereProject {
   // Add the example block item to the building blocks tab
   private void addCreative(BuildCreativeModeTabContentsEvent event) {
     if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
-      event.accept(DysonBlocks.BASIC_BLOCKS.get(BasicBlocks.EXAMPLE_BASIC_BLOCK));
+      event.accept(DysonBlocks.getBasicBlock(BasicBlocks.EXAMPLE_BASIC_BLOCK));
       event.accept(DysonBlocks.SOLAR_GENERATOR);
       event.accept(DysonItems.getBasicItem(BasicItems.MIRROR));
     }

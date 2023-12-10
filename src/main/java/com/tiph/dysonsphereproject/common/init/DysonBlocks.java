@@ -68,7 +68,7 @@ public class DysonBlocks extends Block {
   }
 
 
-  public static DeferredBlock<?> getBasicItem(BasicBlocks block){
+  public static DeferredBlock<?> getBasicBlock(BasicBlocks block){
     return BASIC_BLOCKS.get(block);
   }
 }
