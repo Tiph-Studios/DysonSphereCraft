@@ -49,8 +49,7 @@ public class SolarGeneratorBlock extends DysonBlock {
       @Nullable BlockGetter blockGetter,
       List<Component> components,
       @NotNull TooltipFlag tooltipFlag) {
-    components.add(Component.literal(String.format("Generates %d FE/t", this.powerGen)));
-    components.add(Component.translatable())
+    components.add(Component.translatable("tooltip.dysonspherecraft.solar_generator.tooltip", this.powerGen));
     super.appendHoverText(itemStack, blockGetter, components, tooltipFlag);
   }
 

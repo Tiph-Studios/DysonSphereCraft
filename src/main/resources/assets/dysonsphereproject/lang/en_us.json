@@ -1,3 +1,5 @@
 {
-  "block.dysonsphereproject.solar_generator": "Solar Generator"
+  "block.dysonsphereproject.solar_generator": "Solar Generator",
+
+  "tooltip.dysonspherecraft.solar_generator.tooltip": "Generates %1$s FE/t"
 }
