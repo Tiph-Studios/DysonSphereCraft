@@ -68,6 +68,7 @@ public class DysonSphereProject {
   private void addCreative(BuildCreativeModeTabContentsEvent event) {
     if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
       event.accept(SolarGeneratorBlock.SOLAR_GENERATOR_BLOCK);
+      event.accept(DysonItem.MIRROR_ITEM);
     }
   }
 

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "M": {
+      "item": "dysonsphereproject:mirror"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "T": {
+      "item": "minecraft:oak_planks"
+    }
+  },
+  "pattern": [
+    "MMM",
+    "RRR",
+    "TTT"
+  ],
+  "result": {
+    "item": "dysonsphereproject:solar_generator"
+  }
+}
