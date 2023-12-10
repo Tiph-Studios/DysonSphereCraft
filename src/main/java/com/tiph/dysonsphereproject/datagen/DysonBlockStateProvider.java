@@ -10,16 +10,16 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 
 public class DysonBlockStateProvider extends BlockStateProvider {
 
-    public DysonBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
-        super(output, DysonSphereProject.MODID, exFileHelper);
-    }
+  public DysonBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
+    super(output, DysonSphereProject.MODID, exFileHelper);
+  }
 
-    @Override
-    protected void registerStatesAndModels() {
-        blockWithItem(SolarGeneratorBlock.SOLAR_GENERATOR_BLOCK);
-    }
+  @Override
+  protected void registerStatesAndModels() {
+    blockWithItem(SolarGeneratorBlock.SOLAR_GENERATOR_BLOCK);
+  }
 
-    private <T extends DysonBlock> void blockWithItem(DeferredBlock<T> block) {
-        simpleBlockWithItem(block.get(), cubeAll(block.get()));
-    }
+  private <T extends DysonBlock> void blockWithItem(DeferredBlock<T> block) {
+    simpleBlockWithItem(block.get(), cubeAll(block.get()));
+  }
 }

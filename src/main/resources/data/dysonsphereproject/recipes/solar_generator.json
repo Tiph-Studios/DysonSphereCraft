@@ -3,13 +3,13 @@
   "category": "redstone",
   "key": {
     "M": {
-      "item": "dysonsphereproject:mirror"
+      "tag": "dysonsphereproject:solar_generators"
     },
     "R": {
       "item": "minecraft:redstone"
     },
     "T": {
-      "item": "minecraft:oak_planks"
+      "tag": "minecraft:planks"
     }
   },
   "pattern": [

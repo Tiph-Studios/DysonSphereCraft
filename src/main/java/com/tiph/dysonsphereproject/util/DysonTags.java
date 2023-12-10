@@ -9,18 +9,20 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
 public class DysonTags {
-    public static class Blocks {
-        public static final TagKey<Block> SOLAR_GENERATORS = tag("solar_generators");
+  public static class Blocks {
 
-        private static TagKey<Block> tag(final String name) {
-            return BlockTags.create(new ResourceLocation(DysonSphereProject.MODID, name));
-        }
+    // Example tag key to use to check block types in code
+    public static final TagKey<Block> SOLAR_GENERATORS = tag("solar_generators");
+
+    private static TagKey<Block> tag(final String name) {
+      return BlockTags.create(new ResourceLocation(DysonSphereProject.MODID, name));
     }
+  }
 
-    public static class Items {
+  public static class Items {
 
-        private static TagKey<Item> tag(final String name) {
-            return ItemTags.create(new ResourceLocation(DysonSphereProject.MODID, name));
-        }
+    private static TagKey<Item> tag(final String name) {
+      return ItemTags.create(new ResourceLocation(DysonSphereProject.MODID, name));
     }
+  }
 }
