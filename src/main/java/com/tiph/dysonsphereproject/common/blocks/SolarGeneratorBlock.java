@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import org.jetbrains.annotations.NotNull;
 
 public class SolarGeneratorBlock extends DysonBlock {
 
@@ -27,7 +28,10 @@ public class SolarGeneratorBlock extends DysonBlock {
 
   @Override
   public VoxelShape getShape(
-      BlockState p_60555_, BlockGetter p_60556_, BlockPos p_60557_, CollisionContext p_60558_) {
+      @NotNull BlockState state,
+      @NotNull BlockGetter getter,
+      @NotNull BlockPos pos,
+      @NotNull CollisionContext context) {
     return SHAPE;
   }
 
