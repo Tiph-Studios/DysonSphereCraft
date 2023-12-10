@@ -3,11 +3,10 @@ package com.tiph.dysonsphereproject.common.init;
 import com.tiph.dysonsphereproject.DysonSphereProject;
 import com.tiph.dysonsphereproject.common.api.IResource;
 import com.tiph.dysonsphereproject.common.blocks.BasicBlocks;
+import com.tiph.dysonsphereproject.common.blocks.SolarGenerator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Supplier;
-
-import com.tiph.dysonsphereproject.common.blocks.SolarGenerator;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -67,8 +66,7 @@ public class DysonBlocks extends Block {
     BLOCKS.register(eventBus);
   }
 
-
-  public static DeferredBlock<?> getBasicBlock(BasicBlocks block){
+  public static DeferredBlock<?> getBasicBlock(BasicBlocks block) {
     return BASIC_BLOCKS.get(block);
   }
 }

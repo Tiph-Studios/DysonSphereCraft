@@ -36,7 +36,7 @@ public class DysonItems extends Item {
     ITEMS.register(eventBus);
   }
 
-  public static DeferredItem<?> getBasicItem(BasicItems item){
+  public static DeferredItem<?> getBasicItem(BasicItems item) {
     return BASIC_ITEMS.get(item);
   }
 }
