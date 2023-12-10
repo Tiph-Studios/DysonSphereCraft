@@ -3,22 +3,22 @@
   "category": "redstone",
   "key": {
     "M": {
-      "item": "minecraft:glass"
+      "item": "minecraft:glass_pane"
     },
     "R": {
       "item": "minecraft:redstone"
     },
-    "P": {
-      "tag": "minecraft:planks"
+    "T": {
+      "item": "minecraft:oak_planks"
     }
   },
   "pattern": [
     "MMM",
     "RRR",
-    "PPP"
+    "TTT"
   ],
   "result": {
-    "item": "dysonsphereproject:solar_generator",
+    "item": "dysonsphereproject:mirror",
     "count": "1"
   }
 }
