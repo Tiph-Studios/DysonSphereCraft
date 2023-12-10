@@ -13,17 +13,14 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 public class SolarGeneratorBlock extends DysonBlock {
 
   private static final float DESTROY_TIME = 2.0f;
-  private static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 8, 16);
+  private static final VoxelShape SHAPE = Block.box(0, 0, 0, 16.0, 8.0, 16.0);
 
   public static final DeferredBlock<SolarGeneratorBlock> SOLAR_GENERATOR_BLOCK =
       DysonBlock.registerBlock(
           "solar_generator",
           () ->
               new SolarGeneratorBlock(
-                  BlockBehaviour.Properties.of()
-                      .destroyTime(DESTROY_TIME)
-                      .sound(SoundType.METAL)
-                      .dynamicShape()));
+                  BlockBehaviour.Properties.of().destroyTime(DESTROY_TIME).sound(SoundType.METAL)));
 
   @Override
   public VoxelShape getShape(
