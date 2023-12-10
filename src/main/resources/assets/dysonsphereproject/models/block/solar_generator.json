@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/slabs",
   "textures": {
+    "particle":"dysonsphereproject:block/solar_generator",
     "all": "dysonsphereproject:block/solar_generator"
   },
   "elements": [
