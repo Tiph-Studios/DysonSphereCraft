@@ -13,6 +13,10 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 @Mod.EventBusSubscriber(modid = DysonSphereProject.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
 
+  private DataGenerators() {
+    throw new UnsupportedOperationException("Do not instantiate");
+  }
+
   @SubscribeEvent
   public static void gatherData(final GatherDataEvent event) {
     final DataGenerator generator = event.getGenerator();

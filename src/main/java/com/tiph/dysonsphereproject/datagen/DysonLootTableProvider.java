@@ -8,6 +8,11 @@ import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 
 public class DysonLootTableProvider {
+
+  private DysonLootTableProvider() {
+    throw new UnsupportedOperationException("Do not instantiate directly");
+  }
+
   public static LootTableProvider create(final PackOutput output) {
     return new LootTableProvider(
         output,
