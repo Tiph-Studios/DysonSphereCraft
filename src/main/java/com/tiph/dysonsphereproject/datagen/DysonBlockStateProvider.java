@@ -1,9 +1,9 @@
 package com.tiph.dysonsphereproject.datagen;
 
 import com.tiph.dysonsphereproject.DysonSphereProject;
-import com.tiph.dysonsphereproject.common.blocks.DysonBlock;
-import com.tiph.dysonsphereproject.common.blocks.SolarGeneratorBlock;
+import com.tiph.dysonsphereproject.common.init.DysonBlocks;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -16,10 +16,10 @@ public class DysonBlockStateProvider extends BlockStateProvider {
 
   @Override
   protected void registerStatesAndModels() {
-    blockWithItem(SolarGeneratorBlock.SOLAR_GENERATOR_BLOCK);
+    blockWithItem(DysonBlocks.SOLAR_GENERATOR);
   }
 
-  private <T extends DysonBlock> void blockWithItem(DeferredBlock<T> block) {
+  private <T extends Block> void blockWithItem(DeferredBlock<T> block) {
     simpleBlockWithItem(block.get(), cubeAll(block.get()));
   }
 }

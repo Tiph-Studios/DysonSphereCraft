@@ -1,7 +1,8 @@
 package com.tiph.dysonsphereproject.datagen;
 
 import com.tiph.dysonsphereproject.DysonSphereProject;
-import com.tiph.dysonsphereproject.common.items.DysonItem;
+import com.tiph.dysonsphereproject.common.init.DysonItems;
+import com.tiph.dysonsphereproject.common.items.BasicItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -18,7 +19,7 @@ public class DysonItemModelProvider extends ItemModelProvider {
 
   @Override
   protected void registerModels() {
-    this.basicItem(DysonItem.MIRROR_ITEM.get());
+    this.basicItem(DysonItems.getBasicItem(BasicItems.MIRROR).get());
   }
 
   private ItemModelBuilder simpleItem(DeferredItem<Item> item) {

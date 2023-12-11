@@ -1,7 +1,7 @@
 package com.tiph.dysonsphereproject.datagen;
 
 import com.tiph.dysonsphereproject.DysonSphereProject;
-import com.tiph.dysonsphereproject.common.blocks.SolarGeneratorBlock;
+import com.tiph.dysonsphereproject.common.init.DysonBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -20,7 +20,7 @@ public class DysonBlockModelProvider extends BlockModelProvider {
     final ResourceLocation location =
         new ResourceLocation(
             DysonSphereProject.MODID,
-            "block/" + SolarGeneratorBlock.SOLAR_GENERATOR_BLOCK.getId().getPath());
+            "block/" + DysonBlocks.SOLAR_GENERATOR.getId().getPath());
 
     this.cubeAll("solar_generator", location)
         .element()

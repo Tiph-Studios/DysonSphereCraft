@@ -1,7 +1,8 @@
 package com.tiph.dysonsphereproject.datagen;
 
-import com.tiph.dysonsphereproject.common.blocks.SolarGeneratorBlock;
-import com.tiph.dysonsphereproject.common.items.DysonItem;
+import com.tiph.dysonsphereproject.common.init.DysonBlocks;
+import com.tiph.dysonsphereproject.common.init.DysonItems;
+import com.tiph.dysonsphereproject.common.items.BasicItems;
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -24,7 +25,7 @@ public class DysonRecipeProvider extends RecipeProvider implements IConditionBui
   @Override
   protected void buildRecipes(@NotNull RecipeOutput recipeOutput) {
     // Mirror
-    ShapedRecipeBuilder.shaped(RecipeCategory.MISC, DysonItem.MIRROR_ITEM)
+    ShapedRecipeBuilder.shaped(RecipeCategory.MISC, DysonItems.getBasicItem(BasicItems.MIRROR))
         .pattern("GGG")
         .pattern("SIS")
         .define('G', Items.GLASS_PANE)
@@ -34,16 +35,16 @@ public class DysonRecipeProvider extends RecipeProvider implements IConditionBui
         .save(recipeOutput);
 
     // Solar Generator
-    ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SolarGeneratorBlock.SOLAR_GENERATOR_BLOCK)
+    ShapedRecipeBuilder.shaped(RecipeCategory.MISC, DysonBlocks.SOLAR_GENERATOR)
         .pattern("MMM")
         .pattern("RRR")
         .pattern("PPP")
-        .define('M', DysonItem.MIRROR_ITEM)
+        .define('M', DysonItems.getBasicItem(BasicItems.MIRROR))
         .define('R', Items.REDSTONE)
         .define('P', ItemTags.PLANKS)
         .unlockedBy(
-            getHasName(DysonItem.MIRROR_ITEM.get()),
-            has(DysonItem.MIRROR_ITEM.get()))
+            getHasName(DysonItems.getBasicItem(BasicItems.MIRROR).get()),
+            has(DysonItems.getBasicItem(BasicItems.MIRROR).get()))
         .save(recipeOutput);
   }
 }

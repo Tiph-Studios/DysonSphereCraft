@@ -1,7 +1,7 @@
 package com.tiph.dysonsphereproject.datagen;
 
 import com.tiph.dysonsphereproject.DysonSphereProject;
-import com.tiph.dysonsphereproject.common.blocks.SolarGeneratorBlock;
+import com.tiph.dysonsphereproject.common.init.DysonBlocks;
 import com.tiph.dysonsphereproject.util.DysonTags;
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
@@ -24,12 +24,12 @@ public class DysonBlockTagGenerator extends BlockTagsProvider {
   @Override
   protected void addTags(@NotNull HolderLookup.Provider provider) {
     this.tag(DysonTags.Blocks.SOLAR_GENERATORS)
-            .add(SolarGeneratorBlock.SOLAR_GENERATOR_BLOCK.get());
+            .add(DysonBlocks.SOLAR_GENERATOR.get());
 
     this.tag(BlockTags.NEEDS_STONE_TOOL)
-            .add(SolarGeneratorBlock.SOLAR_GENERATOR_BLOCK.get());
+            .add(DysonBlocks.SOLAR_GENERATOR.get());
 
     this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
-            .add(SolarGeneratorBlock.SOLAR_GENERATOR_BLOCK.get());
+            .add(DysonBlocks.SOLAR_GENERATOR.get());
   }
 }

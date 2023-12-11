@@ -1,9 +1,10 @@
 package com.tiph.dysonsphereproject;
 
 import com.mojang.logging.LogUtils;
-import com.tiph.dysonsphereproject.common.blocks.DysonBlock;
-import com.tiph.dysonsphereproject.common.blocks.SolarGeneratorBlock;
-import com.tiph.dysonsphereproject.common.items.DysonItem;
+import com.tiph.dysonsphereproject.common.blocks.BasicBlocks;
+import com.tiph.dysonsphereproject.common.init.DysonBlocks;
+import com.tiph.dysonsphereproject.common.init.DysonItems;
+import com.tiph.dysonsphereproject.common.items.BasicItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -38,9 +39,9 @@ public class DysonSphereProject {
     modEventBus.addListener(this::commonSetup);
 
     // Register the Deferred Register to the mod event bus so blocks get registered
-    DysonBlock.register(modEventBus);
+    DysonBlocks.register(modEventBus);
     // Register the Deferred Register to the mod event bus so items get registered
-    DysonItem.register(modEventBus);
+    DysonItems.register(modEventBus);
 
     // Register ourselves for server and other game events we are interested in
     NeoForge.EVENT_BUS.register(this);
@@ -67,8 +68,9 @@ public class DysonSphereProject {
   // Add the example block item to the building blocks tab
   private void addCreative(BuildCreativeModeTabContentsEvent event) {
     if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
-      event.accept(SolarGeneratorBlock.SOLAR_GENERATOR_BLOCK);
-      event.accept(DysonItem.MIRROR_ITEM);
+      event.accept(DysonBlocks.getBasicBlock(BasicBlocks.EXAMPLE_BASIC_BLOCK));
+      event.accept(DysonBlocks.SOLAR_GENERATOR);
+      event.accept(DysonItems.getBasicItem(BasicItems.MIRROR));
     }
   }
 
