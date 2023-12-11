@@ -36,7 +36,7 @@ public class DysonBlocks {
           SolarGenerator.getRegistrySuffix(),
           () ->
               new SolarGenerator(
-                  BlockBehaviour.Properties.of().destroyTime(SolarGenerator.getDestroyTime())));
+                  BlockBehaviour.Properties.of().destroyTime(SolarGenerator.getDestroyTime()), 4));
 
   // Tile Entities
   // Add Tile Entities here
