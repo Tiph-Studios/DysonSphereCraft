@@ -30,6 +30,7 @@ public class SolarGeneratorBlock extends DysonBlock {
               new SolarGeneratorBlock(
                   BlockBehaviour.Properties.of()
                       .destroyTime(DESTROY_TIME)
+                      .requiresCorrectToolForDrops()
                       .sound(SoundType.METAL)
                       .dynamicShape(),
                   4));
@@ -49,7 +50,8 @@ public class SolarGeneratorBlock extends DysonBlock {
       @Nullable BlockGetter blockGetter,
       List<Component> components,
       @NotNull TooltipFlag tooltipFlag) {
-    components.add(Component.translatable("tooltip.dysonspherecraft.solar_generator.tooltip", this.powerGen));
+    components.add(
+        Component.translatable("tooltip.dysonspherecraft.solar_generator.tooltip", this.powerGen));
     super.appendHoverText(itemStack, blockGetter, components, tooltipFlag);
   }
 
