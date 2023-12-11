@@ -16,7 +16,7 @@ public class DysonItems {
   public static final DeferredRegister.Items ITEMS =
       DeferredRegister.createItems(DysonSphereProject.MODID);
 
-  private static final Map<IResource, DeferredItem<?>> BASIC_ITEMS = new LinkedHashMap<>();
+  private static final Map<IResource, DeferredItem<Item>> BASIC_ITEMS = new LinkedHashMap<>();
 
   // Basic Items
   static {
@@ -33,7 +33,7 @@ public class DysonItems {
     ITEMS.register(eventBus);
   }
 
-  public static DeferredItem<?> getBasicItem(BasicItems item) {
+  public static DeferredItem<Item> getBasicItem(BasicItems item) {
     return BASIC_ITEMS.get(item);
   }
 }
