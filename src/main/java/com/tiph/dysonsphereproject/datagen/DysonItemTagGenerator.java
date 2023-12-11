@@ -7,6 +7,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class DysonItemTagGenerator extends ItemTagsProvider {
@@ -20,7 +21,7 @@ public class DysonItemTagGenerator extends ItemTagsProvider {
   }
 
   @Override
-  protected void addTags(HolderLookup.Provider provider) {
-
+  protected void addTags(HolderLookup.@NotNull Provider provider) {
+    // Add item tags here. See DysonBlockTagGenerator for examples. Or READ ONLINE
   }
 }

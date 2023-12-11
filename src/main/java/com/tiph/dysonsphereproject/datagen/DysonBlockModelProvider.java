@@ -19,8 +19,7 @@ public class DysonBlockModelProvider extends BlockModelProvider {
 
     final ResourceLocation location =
         new ResourceLocation(
-            DysonSphereProject.MODID,
-            "block/" + DysonBlocks.SOLAR_GENERATOR.getId().getPath());
+            DysonSphereProject.MODID, "block/" + DysonBlocks.SOLAR_GENERATOR.getId().getPath());
 
     this.cubeAll("solar_generator", location)
         .element()

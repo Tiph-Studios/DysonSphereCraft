@@ -22,18 +22,21 @@ public class SolarGenerator extends Block {
 
   @Override
   public void appendHoverText(
-          @NotNull ItemStack itemStack,
-          @Nullable BlockGetter blockGetter,
-          List<Component> components,
-          @NotNull TooltipFlag tooltipFlag) {
+      @NotNull ItemStack itemStack,
+      @Nullable BlockGetter blockGetter,
+      List<Component> components,
+      @NotNull TooltipFlag tooltipFlag) {
     components.add(
-            Component.translatable("tooltip.dysonspherecraft.solar_generator.tooltip", this.powerGen));
+        Component.translatable("tooltip.dysonspherecraft.solar_generator.tooltip", this.powerGen));
     super.appendHoverText(itemStack, blockGetter, components, tooltipFlag);
   }
 
   @Override
   public @NotNull VoxelShape getShape(
-          @NotNull BlockState blockState, @NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, @NotNull CollisionContext collisionContext) {
+      @NotNull BlockState blockState,
+      @NotNull BlockGetter blockGetter,
+      @NotNull BlockPos blockPos,
+      @NotNull CollisionContext collisionContext) {
     return SHAPE;
   }
 
