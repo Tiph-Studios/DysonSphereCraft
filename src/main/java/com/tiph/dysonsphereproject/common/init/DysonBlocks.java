@@ -46,7 +46,6 @@ public class DysonBlocks {
               new SolarGenerator(
                   BlockBehaviour.Properties.of().destroyTime(SolarGenerator.getDestroyTime()), 4));
 
-
   ///////////////////
   // Tile Entities
   ///////////////////
