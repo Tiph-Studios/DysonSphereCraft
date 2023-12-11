@@ -23,13 +23,14 @@ public class DataGenerators {
     generator.addProvider(
         event.includeServer(), new DysonRecipeProvider(packOutput, lookupProvider));
 
-    generator.addProvider(
-            event.includeServer(), DysonLootTableProvider.create(packOutput));
+    generator.addProvider(event.includeServer(), DysonLootTableProvider.create(packOutput));
 
     generator.addProvider(
         event.includeClient(), new DysonBlockStateProvider(packOutput, fileHelper));
     generator.addProvider(
         event.includeClient(), new DysonItemModelProvider(packOutput, fileHelper));
+    generator.addProvider(
+        event.includeClient(), new DysonBlockModelProvider(packOutput, fileHelper));
 
     final DysonBlockTagGenerator blockTagGenerator =
         generator.addProvider(
