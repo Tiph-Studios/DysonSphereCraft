@@ -21,7 +21,7 @@ public class DysonBlocks {
   public static final DeferredRegister.Blocks BLOCKS =
       DeferredRegister.createBlocks(DysonSphereProject.MODID);
 
-  private static final Map<IResource, DeferredBlock<?>> BASIC_BLOCKS = new LinkedHashMap<>();
+  private static final Map<IResource, DeferredBlock<Block>> BASIC_BLOCKS = new LinkedHashMap<>();
 
   // Basic Blocks
   static {
@@ -63,7 +63,7 @@ public class DysonBlocks {
     BLOCKS.register(eventBus);
   }
 
-  public static DeferredBlock<?> getBasicBlock(BasicBlocks block) {
+  public static DeferredBlock<Block> getBasicBlock(BasicBlocks block) {
     return BASIC_BLOCKS.get(block);
   }
 }
