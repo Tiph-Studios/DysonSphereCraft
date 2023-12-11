@@ -3,24 +3,14 @@ package com.tiph.dysonsphereproject.common.blocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.registries.DeferredBlock;
 
-public class SolarGeneratorBlock extends DysonBlock {
-
+public class SolarGenerator extends Block {
+  private static final String REGISTRY_SUFFIX = "solar_generator";
   private static final float DESTROY_TIME = 2.0f;
   private static final VoxelShape SHAPE = Block.box(0, 0, 0, 16.0, 8.0, 16.0);
-
-  public static final DeferredBlock<SolarGeneratorBlock> SOLAR_GENERATOR_BLOCK =
-      DysonBlock.registerBlock(
-          "solar_generator",
-          () ->
-              new SolarGeneratorBlock(
-                  BlockBehaviour.Properties.of().destroyTime(DESTROY_TIME).sound(SoundType.METAL)));
 
   @Override
   public VoxelShape getShape(
@@ -28,11 +18,15 @@ public class SolarGeneratorBlock extends DysonBlock {
     return SHAPE;
   }
 
-  public static void init() {
-    // Instantiate blocks
+  public SolarGenerator(Properties p) {
+    super(p);
   }
 
-  public SolarGeneratorBlock(Properties p) {
-    super(p);
+  public static String getRegistrySuffix() {
+    return REGISTRY_SUFFIX;
+  }
+
+  public static float getDestroyTime() {
+    return DESTROY_TIME;
   }
 }
