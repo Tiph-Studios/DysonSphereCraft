@@ -32,6 +32,19 @@ public class SolarGeneratorBlock extends BaseEntityBlock {
 
   private final int powerGen;
 
+  public SolarGeneratorBlock(Properties p, final int powerGen) {
+    super(p);
+    this.powerGen = powerGen;
+  }
+
+  public static String getRegistrySuffix() {
+    return REGISTRY_SUFFIX;
+  }
+
+  public static float getDestroyTime() {
+    return DESTROY_TIME;
+  }
+
   @Override
   public void appendHoverText(
       @NotNull ItemStack itemStack,
@@ -55,11 +68,6 @@ public class SolarGeneratorBlock extends BaseEntityBlock {
   @Override
   public RenderShape getRenderShape(BlockState blockState) {
     return RenderShape.MODEL;
-  }
-
-  public SolarGeneratorBlock(Properties p, final int powerGen) {
-    super(p);
-    this.powerGen = powerGen;
   }
 
   @Nullable
@@ -105,13 +113,5 @@ public class SolarGeneratorBlock extends BaseEntityBlock {
         blockEntityType,
         DysonBlockEntities.SOLAR_GENERATOR_ENTITY.get(),
         (level1, pos, blockState1, blockEntity) -> blockEntity.tick(level1, pos, blockState1));
-  }
-
-  public static String getRegistrySuffix() {
-    return REGISTRY_SUFFIX;
-  }
-
-  public static float getDestroyTime() {
-    return DESTROY_TIME;
   }
 }

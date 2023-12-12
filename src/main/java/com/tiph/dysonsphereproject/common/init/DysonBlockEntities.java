@@ -15,14 +15,16 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class DysonBlockEntities {
 
+  public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
+      DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, DysonSphereProject.MODID);
+
   private DysonBlockEntities() {
     throw new IllegalStateException("Do not instantiate.");
   }
 
-  public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
-      DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, DysonSphereProject.MODID);
-
-  public static final Supplier<BlockEntityType<SolarGeneratorBlockEntity>> SOLAR_GENERATOR_ENTITY =
+  public static void register(final IEventBus eventBus) {
+    BLOCK_ENTITIES.register(eventBus);
+  }  public static final Supplier<BlockEntityType<SolarGeneratorBlockEntity>> SOLAR_GENERATOR_ENTITY =
       BLOCK_ENTITIES.register(
           SolarGeneratorBlock.getRegistrySuffix(),
           () ->
@@ -46,7 +48,5 @@ public class DysonBlockEntities {
                                           GroundStationBlockEntity::new, DysonBlocks.GROUND_STATION.get())
                                   .build(null));
 
-  public static void register(final IEventBus eventBus) {
-    BLOCK_ENTITIES.register(eventBus);
-  }
+
 }
