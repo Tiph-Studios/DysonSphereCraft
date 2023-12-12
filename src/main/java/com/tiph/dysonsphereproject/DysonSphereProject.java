@@ -2,6 +2,7 @@ package com.tiph.dysonsphereproject;
 
 import com.mojang.logging.LogUtils;
 import com.tiph.dysonsphereproject.common.blocks.BasicBlocks;
+import com.tiph.dysonsphereproject.common.init.DysonBlockEntities;
 import com.tiph.dysonsphereproject.common.init.DysonBlocks;
 import com.tiph.dysonsphereproject.common.init.DysonItems;
 import com.tiph.dysonsphereproject.common.items.BasicItems;
@@ -42,6 +43,8 @@ public class DysonSphereProject {
     DysonBlocks.register(modEventBus);
     // Register the Deferred Register to the mod event bus so items get registered
     DysonItems.register(modEventBus);
+    // Register the Deferred Register to the mod event bus so block entities get registered
+    DysonBlockEntities.register(modEventBus);
 
     // Register ourselves for server and other game events we are interested in
     NeoForge.EVENT_BUS.register(this);

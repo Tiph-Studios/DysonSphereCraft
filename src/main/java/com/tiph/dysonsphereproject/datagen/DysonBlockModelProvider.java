@@ -1,12 +1,15 @@
 package com.tiph.dysonsphereproject.datagen;
 
 import com.tiph.dysonsphereproject.DysonSphereProject;
+import com.tiph.dysonsphereproject.common.blocks.BasicBlocks;
 import com.tiph.dysonsphereproject.common.init.DysonBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.BlockModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 public class DysonBlockModelProvider extends BlockModelProvider {
 
@@ -17,11 +20,15 @@ public class DysonBlockModelProvider extends BlockModelProvider {
   @Override
   protected void registerModels() {
 
-    final ResourceLocation location =
-        new ResourceLocation(
-            DysonSphereProject.MODID, "block/" + DysonBlocks.SOLAR_GENERATOR.getId().getPath());
+    for (final BasicBlocks block : BasicBlocks.values()) {
+      simpleBlockItem(block.getRegistrySuffix(), DysonBlocks.getBasicBlock(block));
+    }
 
-    this.cubeAll("solar_generator", location)
+    // Solar generator
+    this.cubeAll(
+            "solar_generator",
+            new ResourceLocation(
+                DysonSphereProject.MODID, "block/" + DysonBlocks.SOLAR_GENERATOR.getId().getPath()))
         .element()
         .from(0, 0, 0)
         .to(16, 8, 16)
@@ -49,5 +56,10 @@ public class DysonBlockModelProvider extends BlockModelProvider {
         .uvs(0f, 6.4f, 16f, 9.6f)
         .texture("#all")
         .end();
+  }
+
+  private void simpleBlockItem(final String name, final DeferredBlock<Block> block) {
+    this.cubeAll(
+        name, new ResourceLocation(DysonSphereProject.MODID, "block/" + block.getId().getPath()));
   }
 }

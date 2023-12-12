@@ -16,6 +16,11 @@ public class DysonBlockStateProvider extends BlockStateProvider {
 
   @Override
   protected void registerStatesAndModels() {
+
+    for (final DeferredBlock<Block> block : DysonBlocks.BASIC_BLOCKS.values()) {
+      blockWithItem(block);
+    }
+
     blockWithItem(DysonBlocks.SOLAR_GENERATOR);
   }
 

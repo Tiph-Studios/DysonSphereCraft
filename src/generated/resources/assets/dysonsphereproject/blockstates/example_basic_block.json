@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "dysonsphereproject:block/example_basic_block"
+    }
+  }
+}
