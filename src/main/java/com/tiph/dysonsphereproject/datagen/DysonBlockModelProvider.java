@@ -1,6 +1,7 @@
 package com.tiph.dysonsphereproject.datagen;
 
 import com.tiph.dysonsphereproject.DysonSphereProject;
+import com.tiph.dysonsphereproject.common.blocks.BasicBlocks;
 import com.tiph.dysonsphereproject.common.init.DysonBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
@@ -19,6 +20,9 @@ public class DysonBlockModelProvider extends BlockModelProvider {
   @Override
   protected void registerModels() {
 
+    for (final BasicBlocks block: BasicBlocks.values()) {
+      simpleBlockItem(block.getRegistrySuffix(), DysonBlocks.getBasicBlock(block));
+    }
 
 
     // Solar generator
@@ -53,9 +57,9 @@ public class DysonBlockModelProvider extends BlockModelProvider {
         .end();
   }
 
-  private void simpleBlockItem(final DeferredBlock<Block> block) {
-//    this.withExistingParent(DysonSphereProject.MODID + ":" + Registries.BLOCK.registry().getKey(block.get()).getPath(),
-//            modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath()));
+  private void simpleBlockItem(final String name, final DeferredBlock<Block> block) {
+    this.cubeAll(name, new ResourceLocation(
+            DysonSphereProject.MODID, "block/" + block.getId().getPath()));
   }
 
 }

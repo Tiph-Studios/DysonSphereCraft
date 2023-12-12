@@ -1,4 +1,7 @@
-// 1.20.2	2023-12-10T19:03:07.9538861	Block States: dysonsphereproject
+// 1.20.2	2023-12-11T21:09:49.9371858	Block States: dysonsphereproject
+f7ac7f16bb5e6ced053725b4e1ffd14aa30ede52 assets/dysonsphereproject/blockstates/example_basic_block.json
 5342c5eed84a6ed29c105381e17140112acab617 assets/dysonsphereproject/blockstates/solar_generator.json
+f5f7be39ab5e611365a49716c8a117eeaa4362d3 assets/dysonsphereproject/models/block/example_basic_block.json
 70a8a12a69a557d478d209a842e5564a0c33358d assets/dysonsphereproject/models/block/solar_generator.json
+456c59c327500f8ed08997ddb3a6bb7ef49a1f42 assets/dysonsphereproject/models/item/example_basic_block.json
 bea20bd06ac895e568e02c00de12956ad1d2a516 assets/dysonsphereproject/models/item/solar_generator.json
