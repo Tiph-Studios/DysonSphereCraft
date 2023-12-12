@@ -29,7 +29,8 @@ public class SolarGeneratorBlockEntity extends DysonBlockEntity implements MenuP
   }
 
   @Override
-  public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+  public @NotNull <T> LazyOptional<T> getCapability(
+      @NotNull Capability<T> cap, @Nullable Direction side) {
     if (cap == Capabilities.ENERGY) {
       return lazyEnergyHandler.cast();
     }

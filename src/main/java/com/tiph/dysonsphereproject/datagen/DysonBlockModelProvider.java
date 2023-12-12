@@ -20,14 +20,15 @@ public class DysonBlockModelProvider extends BlockModelProvider {
   @Override
   protected void registerModels() {
 
-    for (final BasicBlocks block: BasicBlocks.values()) {
+    for (final BasicBlocks block : BasicBlocks.values()) {
       simpleBlockItem(block.getRegistrySuffix(), DysonBlocks.getBasicBlock(block));
     }
 
-
     // Solar generator
-    this.cubeAll("solar_generator", new ResourceLocation(
-                    DysonSphereProject.MODID, "block/" + DysonBlocks.SOLAR_GENERATOR.getId().getPath()))
+    this.cubeAll(
+            "solar_generator",
+            new ResourceLocation(
+                DysonSphereProject.MODID, "block/" + DysonBlocks.SOLAR_GENERATOR.getId().getPath()))
         .element()
         .from(0, 0, 0)
         .to(16, 8, 16)
@@ -58,8 +59,7 @@ public class DysonBlockModelProvider extends BlockModelProvider {
   }
 
   private void simpleBlockItem(final String name, final DeferredBlock<Block> block) {
-    this.cubeAll(name, new ResourceLocation(
-            DysonSphereProject.MODID, "block/" + block.getId().getPath()));
+    this.cubeAll(
+        name, new ResourceLocation(DysonSphereProject.MODID, "block/" + block.getId().getPath()));
   }
-
 }

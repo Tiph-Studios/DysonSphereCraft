@@ -10,22 +10,22 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class DysonBlockEntities {
 
-    private DysonBlockEntities() {
-        throw new IllegalStateException("Do not instantiate.");
-    }
+  private DysonBlockEntities() {
+    throw new IllegalStateException("Do not instantiate.");
+  }
 
-    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
-            DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, DysonSphereProject.MODID);
+  public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
+      DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, DysonSphereProject.MODID);
 
-    public static final Supplier<BlockEntityType<SolarGeneratorBlockEntity>> SOLAR_GENERATOR_ENTITY =
-            BLOCK_ENTITIES.register(
-                    "solar_generator",
-                    () ->
-                            BlockEntityType.Builder.of(SolarGeneratorBlockEntity::new, DysonBlocks.SOLAR_GENERATOR.get())
-                                    .build(null));
+  public static final Supplier<BlockEntityType<SolarGeneratorBlockEntity>> SOLAR_GENERATOR_ENTITY =
+      BLOCK_ENTITIES.register(
+          "solar_generator",
+          () ->
+              BlockEntityType.Builder.of(
+                      SolarGeneratorBlockEntity::new, DysonBlocks.SOLAR_GENERATOR.get())
+                  .build(null));
 
-
-    public static void register(final IEventBus eventBus) {
-        BLOCK_ENTITIES.register(eventBus);
-    }
+  public static void register(final IEventBus eventBus) {
+    BLOCK_ENTITIES.register(eventBus);
+  }
 }

@@ -40,7 +40,8 @@ public class DysonBlocks {
           SolarGeneratorBlock.getRegistrySuffix(),
           () ->
               new SolarGeneratorBlock(
-                  BlockBehaviour.Properties.of().destroyTime(SolarGeneratorBlock.getDestroyTime()), 4));
+                  BlockBehaviour.Properties.of().destroyTime(SolarGeneratorBlock.getDestroyTime()),
+                  4));
 
   ///////////////////
   // Util methods

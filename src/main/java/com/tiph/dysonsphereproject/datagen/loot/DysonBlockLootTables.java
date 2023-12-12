@@ -19,7 +19,7 @@ public class DysonBlockLootTables extends BlockLootSubProvider {
   protected void generate() {
     this.dropSelf(DysonBlocks.SOLAR_GENERATOR.get());
 
-    for (final DeferredBlock<Block> block: DysonBlocks.BASIC_BLOCKS.values()) {
+    for (final DeferredBlock<Block> block : DysonBlocks.BASIC_BLOCKS.values()) {
       this.dropSelf(block.get());
     }
   }

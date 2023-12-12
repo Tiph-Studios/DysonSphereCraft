@@ -52,10 +52,10 @@ public class SolarGeneratorBlock extends BaseEntityBlock {
     return SHAPE;
   }
 
-    @Override
-    public RenderShape getRenderShape(BlockState blockState) {
-      return RenderShape.MODEL;
-    }
+  @Override
+  public RenderShape getRenderShape(BlockState blockState) {
+    return RenderShape.MODEL;
+  }
 
   public SolarGeneratorBlock(Properties p, final int powerGen) {
     super(p);
@@ -77,15 +77,15 @@ public class SolarGeneratorBlock extends BaseEntityBlock {
       @NotNull InteractionHand interactionHand,
       @NotNull BlockHitResult blockHitResult) {
 
-//    if (!level.isClientSide) {
-//      final BlockEntity entity = level.getBlockEntity(blockPos);
-//      if (entity instanceof final SolarGeneratorBlockEntity solarGenerator) {
-//        NetworkHooks.openScreen((ServerPlayer) player, solarGenerator, blockPos);
-//      } else {
-//        // Wtf is this
-//        throw new IllegalStateException("Our (container? energy?) provider is missing!");
-//      }
-//    }
+    //    if (!level.isClientSide) {
+    //      final BlockEntity entity = level.getBlockEntity(blockPos);
+    //      if (entity instanceof final SolarGeneratorBlockEntity solarGenerator) {
+    //        NetworkHooks.openScreen((ServerPlayer) player, solarGenerator, blockPos);
+    //      } else {
+    //        // Wtf is this
+    //        throw new IllegalStateException("Our (container? energy?) provider is missing!");
+    //      }
+    //    }
 
     return InteractionResult.sidedSuccess(level.isClientSide);
   }
@@ -101,8 +101,10 @@ public class SolarGeneratorBlock extends BaseEntityBlock {
       return null;
     }
 
-    return createTickerHelper(blockEntityType, DysonBlockEntities.SOLAR_GENERATOR_ENTITY.get(),
-            (level1, pos, blockState1, blockEntity) -> blockEntity.tick(level1, pos, blockState1));
+    return createTickerHelper(
+        blockEntityType,
+        DysonBlockEntities.SOLAR_GENERATOR_ENTITY.get(),
+        (level1, pos, blockState1, blockEntity) -> blockEntity.tick(level1, pos, blockState1));
   }
 
   public static String getRegistrySuffix() {
