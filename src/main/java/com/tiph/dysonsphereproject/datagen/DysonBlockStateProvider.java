@@ -22,6 +22,8 @@ public class DysonBlockStateProvider extends BlockStateProvider {
     }
 
     blockWithItem(DysonBlocks.SOLAR_GENERATOR);
+    blockWithItem(DysonBlocks.GROUND_STATION);
+    blockWithItem(DysonBlocks.WARP_DISLOCATOR);
   }
 
   private <T extends Block> void blockWithItem(DeferredBlock<T> block) {

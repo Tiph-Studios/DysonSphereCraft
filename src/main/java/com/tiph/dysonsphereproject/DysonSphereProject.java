@@ -73,7 +73,10 @@ public class DysonSphereProject {
     if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
       event.accept(DysonBlocks.getBasicBlock(BasicBlocks.EXAMPLE_BASIC_BLOCK));
       event.accept(DysonBlocks.SOLAR_GENERATOR);
+      event.accept(DysonBlocks.WARP_DISLOCATOR);
+      event.accept(DysonBlocks.GROUND_STATION);
       event.accept(DysonItems.getBasicItem(BasicItems.MIRROR));
+      event.accept(DysonItems.getBasicItem(BasicItems.ORBITAL_COLLECTOR));
     }
   }
 

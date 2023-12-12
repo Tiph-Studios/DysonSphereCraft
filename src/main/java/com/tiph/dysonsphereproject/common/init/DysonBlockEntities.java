@@ -1,7 +1,12 @@
 package com.tiph.dysonsphereproject.common.init;
 
 import com.tiph.dysonsphereproject.DysonSphereProject;
+import com.tiph.dysonsphereproject.common.blocks.GroundStationBlock;
+import com.tiph.dysonsphereproject.common.blocks.SolarGeneratorBlock;
+import com.tiph.dysonsphereproject.common.blocks.WarpDislocatorBlock;
+import com.tiph.dysonsphereproject.common.blocks.entities.GroundStationBlockEntity;
 import com.tiph.dysonsphereproject.common.blocks.entities.SolarGeneratorBlockEntity;
+import com.tiph.dysonsphereproject.common.blocks.entities.WarpDislocatorBlockEntity;
 import java.util.function.Supplier;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -19,11 +24,27 @@ public class DysonBlockEntities {
 
   public static final Supplier<BlockEntityType<SolarGeneratorBlockEntity>> SOLAR_GENERATOR_ENTITY =
       BLOCK_ENTITIES.register(
-          "solar_generator",
+          SolarGeneratorBlock.getRegistrySuffix(),
           () ->
               BlockEntityType.Builder.of(
                       SolarGeneratorBlockEntity::new, DysonBlocks.SOLAR_GENERATOR.get())
                   .build(null));
+
+  public static final Supplier<BlockEntityType<WarpDislocatorBlockEntity>> WARP_DISLOCATOR_ENTITY =
+      BLOCK_ENTITIES.register(
+          WarpDislocatorBlock.getRegistrySuffix(),
+          () ->
+              BlockEntityType.Builder.of(
+                      WarpDislocatorBlockEntity::new, DysonBlocks.WARP_DISLOCATOR.get())
+                  .build(null));
+
+  public static final Supplier<BlockEntityType<GroundStationBlockEntity>> GROUND_STATION_ENTITY =
+          BLOCK_ENTITIES.register(
+                  GroundStationBlock.getRegistrySuffix(),
+                  () ->
+                          BlockEntityType.Builder.of(
+                                          GroundStationBlockEntity::new, DysonBlocks.GROUND_STATION.get())
+                                  .build(null));
 
   public static void register(final IEventBus eventBus) {
     BLOCK_ENTITIES.register(eventBus);

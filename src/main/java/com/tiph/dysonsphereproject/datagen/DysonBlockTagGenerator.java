@@ -24,9 +24,11 @@ public class DysonBlockTagGenerator extends BlockTagsProvider {
   @Override
   protected void addTags(@NotNull HolderLookup.Provider provider) {
     this.tag(DysonTags.Blocks.SOLAR_GENERATORS).add(DysonBlocks.SOLAR_GENERATOR.get());
-
     this.tag(BlockTags.NEEDS_STONE_TOOL).add(DysonBlocks.SOLAR_GENERATOR.get());
-
     this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(DysonBlocks.SOLAR_GENERATOR.get());
+
+    this.tag(DysonTags.Blocks.GROUND_STATION).add(DysonBlocks.GROUND_STATION.get());
+
+    this.tag(DysonTags.Blocks.WARP_DISLOCATOR).add(DysonBlocks.WARP_DISLOCATOR.get());
   }
 }
