@@ -5,6 +5,7 @@ import java.util.Collections;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.NotNull;
 
@@ -17,6 +18,10 @@ public class DysonBlockLootTables extends BlockLootSubProvider {
   @Override
   protected void generate() {
     this.dropSelf(DysonBlocks.SOLAR_GENERATOR.get());
+
+    for (final DeferredBlock<Block> block: DysonBlocks.BASIC_BLOCKS.values()) {
+      this.dropSelf(block.get());
+    }
   }
 
   @Override

@@ -5,8 +5,10 @@ import com.tiph.dysonsphereproject.common.init.DysonBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.BlockModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 public class DysonBlockModelProvider extends BlockModelProvider {
 
@@ -17,11 +19,11 @@ public class DysonBlockModelProvider extends BlockModelProvider {
   @Override
   protected void registerModels() {
 
-    final ResourceLocation location =
-        new ResourceLocation(
-            DysonSphereProject.MODID, "block/" + DysonBlocks.SOLAR_GENERATOR.getId().getPath());
 
-    this.cubeAll("solar_generator", location)
+
+    // Solar generator
+    this.cubeAll("solar_generator", new ResourceLocation(
+                    DysonSphereProject.MODID, "block/" + DysonBlocks.SOLAR_GENERATOR.getId().getPath()))
         .element()
         .from(0, 0, 0)
         .to(16, 8, 16)
@@ -50,4 +52,10 @@ public class DysonBlockModelProvider extends BlockModelProvider {
         .texture("#all")
         .end();
   }
+
+  private void simpleBlockItem(final DeferredBlock<Block> block) {
+//    this.withExistingParent(DysonSphereProject.MODID + ":" + Registries.BLOCK.registry().getKey(block.get()).getPath(),
+//            modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath()));
+  }
+
 }
