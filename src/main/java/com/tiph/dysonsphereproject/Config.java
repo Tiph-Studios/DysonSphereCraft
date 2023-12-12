@@ -36,6 +36,7 @@ public class Config {
   static int magicNumber;
   static String magicNumberIntroduction;
   static Set<Item> items;
+
   private Config() {
     throw new UnsupportedOperationException("Do not instantiate");
   }

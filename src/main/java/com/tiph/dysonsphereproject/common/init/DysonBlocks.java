@@ -32,18 +32,18 @@ public class DysonBlocks {
                   BlockBehaviour.Properties.of().destroyTime(SolarGeneratorBlock.getDestroyTime()),
                   4));
   public static final DeferredBlock<WarpDislocatorBlock> WARP_DISLOCATOR =
-          registerBlockAndItem(
-                  WarpDislocatorBlock.getRegistrySuffix(),
-                  () ->
-                          new WarpDislocatorBlock(
-                                  BlockBehaviour.Properties.of().destroyTime(WarpDislocatorBlock.getDestroyTime())));
+      registerBlockAndItem(
+          WarpDislocatorBlock.getRegistrySuffix(),
+          () ->
+              new WarpDislocatorBlock(
+                  BlockBehaviour.Properties.of()
+                      .destroyTime(WarpDislocatorBlock.getDestroyTime())));
   public static final DeferredBlock<GroundStationBlock> GROUND_STATION =
       registerBlockAndItem(
           GroundStationBlock.getRegistrySuffix(),
           () ->
               new GroundStationBlock(
-                  BlockBehaviour.Properties.of()
-                      .destroyTime(GroundStationBlock.getDestroyTime())));
+                  BlockBehaviour.Properties.of().destroyTime(GroundStationBlock.getDestroyTime())));
 
   ///////////////////
   // Basic Blocks

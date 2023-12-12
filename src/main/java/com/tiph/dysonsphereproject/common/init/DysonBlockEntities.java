@@ -24,7 +24,9 @@ public class DysonBlockEntities {
 
   public static void register(final IEventBus eventBus) {
     BLOCK_ENTITIES.register(eventBus);
-  }  public static final Supplier<BlockEntityType<SolarGeneratorBlockEntity>> SOLAR_GENERATOR_ENTITY =
+  }
+
+  public static final Supplier<BlockEntityType<SolarGeneratorBlockEntity>> SOLAR_GENERATOR_ENTITY =
       BLOCK_ENTITIES.register(
           SolarGeneratorBlock.getRegistrySuffix(),
           () ->
@@ -41,12 +43,10 @@ public class DysonBlockEntities {
                   .build(null));
 
   public static final Supplier<BlockEntityType<GroundStationBlockEntity>> GROUND_STATION_ENTITY =
-          BLOCK_ENTITIES.register(
-                  GroundStationBlock.getRegistrySuffix(),
-                  () ->
-                          BlockEntityType.Builder.of(
-                                          GroundStationBlockEntity::new, DysonBlocks.GROUND_STATION.get())
-                                  .build(null));
-
-
+      BLOCK_ENTITIES.register(
+          GroundStationBlock.getRegistrySuffix(),
+          () ->
+              BlockEntityType.Builder.of(
+                      GroundStationBlockEntity::new, DysonBlocks.GROUND_STATION.get())
+                  .build(null));
 }
