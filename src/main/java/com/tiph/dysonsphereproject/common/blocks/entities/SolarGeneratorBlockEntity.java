@@ -61,13 +61,13 @@ public class SolarGeneratorBlockEntity extends DysonBlockEntity implements MenuP
 
   @Override
   protected void saveAdditional(CompoundTag compoundTag) {
-    compoundTag.put("energy", energyStorage.serializeNBT());
+    compoundTag.putInt("energy", energyStorage.getEnergyStored());
     super.saveAdditional(compoundTag);
   }
 
   @Override
   public void load(CompoundTag compoundTag) {
-    energyStorage.deserializeNBT(compoundTag.getCompound("energy"));
+    energyStorage.deserializeNBT(compoundTag.get("energy"));
     super.load(compoundTag);
   }
 
