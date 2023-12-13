@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "dysonsphereproject:block/ground_station"
+    }
+  }
+}

@@ -58,19 +58,22 @@ public class DysonRecipeProvider extends RecipeProvider implements IConditionBui
         .define('B', Items.IRON_BLOCK)
         .define('D', Items.DIAMOND_BLOCK)
         .unlockedBy(
-            getHasName(DysonItems.getBasicItem(BasicItems.MIRROR).get()),
-            has(DysonItems.getBasicItem(BasicItems.MIRROR).get()))
+            getHasName(DysonItems.getBasicItem(BasicItems.ORBITAL_COLLECTOR).get()),
+            has(DysonItems.getBasicItem(BasicItems.ORBITAL_COLLECTOR)))
         .save(recipeOutput);
 
     // Warp Dislocator
     ShapedRecipeBuilder.shaped(RecipeCategory.MISC, DysonBlocks.WARP_DISLOCATOR)
-        .pattern("IXI")
+        .pattern("I I")
         .pattern("BRB")
         .pattern("BPB")
         .define('I', Items.IRON_BARS)
         .define('R', Items.REDSTONE)
         .define('P', Items.PISTON)
         .define('B', Items.IRON_BLOCK)
+        .unlockedBy(
+            getHasName(DysonItems.getBasicItem(BasicItems.ORBITAL_COLLECTOR).get()),
+            has(DysonItems.getBasicItem(BasicItems.ORBITAL_COLLECTOR)))
         .save(recipeOutput);
   }
 }

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:iron_block"
+    },
+    "D": {
+      "item": "minecraft:diamond_block"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "M": {
+      "item": "dysonsphereproject:mirror"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "MIM",
+    "MRM",
+    "BDB"
+  ],
+  "result": {
+    "item": "dysonsphereproject:ground_station"
+  },
+  "show_notification": true
+}
