@@ -39,7 +39,7 @@ public class SolarGeneratorBlock extends BaseEntityBlock {
       List<Component> components,
       @NotNull TooltipFlag tooltipFlag) {
     components.add(
-        Component.translatable("tooltip.dysonspherecraft.solar_generator.tooltip", this.powerGen));
+        Component.translatable("tooltip.dysonsphereproject.solar_generator.tooltip", this.powerGen));
     super.appendHoverText(itemStack, blockGetter, components, tooltipFlag);
   }
 

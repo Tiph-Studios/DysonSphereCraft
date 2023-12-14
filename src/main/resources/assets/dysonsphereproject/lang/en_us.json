@@ -1,5 +1,5 @@
 {
   "block.dysonsphereproject.solar_generator": "Solar Generator",
   "item.dysonsphereproject.mirror": "Mirror",
-  "tooltip.dysonspherecraft.solar_generator.tooltip": "Generates %1$s FE/t"
+  "tooltip.dysonsphereproject.solar_generator.tooltip": "Generates %1$s FE/t"
 }
