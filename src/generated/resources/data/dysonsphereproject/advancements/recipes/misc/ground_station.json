@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_orbital_collector": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dysonsphereproject:orbital_collector"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dysonsphereproject:ground_station"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_orbital_collector"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dysonsphereproject:ground_station"
+    ]
+  },
+  "sends_telemetry_event": false
+}

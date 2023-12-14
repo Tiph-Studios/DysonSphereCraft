@@ -2,11 +2,12 @@ package com.tiph.dysonsphereproject.datagen;
 
 import com.tiph.dysonsphereproject.DysonSphereProject;
 import com.tiph.dysonsphereproject.common.blocks.BasicBlocks;
+import com.tiph.dysonsphereproject.common.blocks.GroundStationBlock;
+import com.tiph.dysonsphereproject.common.blocks.WarpDislocatorBlock;
 import com.tiph.dysonsphereproject.common.init.DysonBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.BlockModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -23,6 +24,9 @@ public class DysonBlockModelProvider extends BlockModelProvider {
     for (final BasicBlocks block : BasicBlocks.values()) {
       simpleBlockItem(block.getRegistrySuffix(), DysonBlocks.getBasicBlock(block));
     }
+
+    simpleBlockItem(GroundStationBlock.getRegistrySuffix(), DysonBlocks.GROUND_STATION);
+    simpleBlockItem(WarpDislocatorBlock.getRegistrySuffix(), DysonBlocks.WARP_DISLOCATOR);
 
     // Solar generator
     this.cubeAll(
@@ -58,7 +62,7 @@ public class DysonBlockModelProvider extends BlockModelProvider {
         .end();
   }
 
-  private void simpleBlockItem(final String name, final DeferredBlock<Block> block) {
+  private void simpleBlockItem(final String name, final DeferredBlock<?> block) {
     this.cubeAll(
         name, new ResourceLocation(DysonSphereProject.MODID, "block/" + block.getId().getPath()));
   }

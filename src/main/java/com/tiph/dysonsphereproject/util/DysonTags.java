@@ -16,12 +16,12 @@ public class DysonTags {
 
   public static class Blocks {
 
+    // Example tag key to use to check block types in code
+    public static final TagKey<Block> SOLAR_GENERATORS = tag("solar_generators");
+
     private Blocks() {
       throw new UnsupportedOperationException("Do not instantiate block utility class");
     }
-
-    // Example tag key to use to check block types in code
-    public static final TagKey<Block> SOLAR_GENERATORS = tag("solar_generators");
 
     private static TagKey<Block> tag(final String name) {
       return BlockTags.create(new ResourceLocation(DysonSphereProject.MODID, name));

@@ -3,7 +3,9 @@ package com.tiph.dysonsphereproject.common.init;
 import com.tiph.dysonsphereproject.DysonSphereProject;
 import com.tiph.dysonsphereproject.common.api.IResource;
 import com.tiph.dysonsphereproject.common.blocks.BasicBlocks;
+import com.tiph.dysonsphereproject.common.blocks.GroundStationBlock;
 import com.tiph.dysonsphereproject.common.blocks.SolarGeneratorBlock;
+import com.tiph.dysonsphereproject.common.blocks.WarpDislocatorBlock;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Supplier;
@@ -16,22 +18,9 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class DysonBlocks {
-  private DysonBlocks() {}
-
   public static final DeferredRegister.Blocks BLOCKS =
       DeferredRegister.createBlocks(DysonSphereProject.MODID);
-
   public static final Map<IResource, DeferredBlock<Block>> BASIC_BLOCKS = new LinkedHashMap<>();
-
-  ///////////////////
-  // Basic Blocks
-  ///////////////////
-  static {
-    for (BasicBlocks block : BasicBlocks.values()) {
-      BASIC_BLOCKS.put(block, registerBasicBlock(block));
-    }
-  }
-
   ///////////////////
   // Special Blocks
   ///////////////////
@@ -42,6 +31,30 @@ public class DysonBlocks {
               new SolarGeneratorBlock(
                   BlockBehaviour.Properties.of().destroyTime(SolarGeneratorBlock.getDestroyTime()),
                   4));
+  public static final DeferredBlock<WarpDislocatorBlock> WARP_DISLOCATOR =
+      registerBlockAndItem(
+          WarpDislocatorBlock.getRegistrySuffix(),
+          () ->
+              new WarpDislocatorBlock(
+                  BlockBehaviour.Properties.of()
+                      .destroyTime(WarpDislocatorBlock.getDestroyTime())));
+  public static final DeferredBlock<GroundStationBlock> GROUND_STATION =
+      registerBlockAndItem(
+          GroundStationBlock.getRegistrySuffix(),
+          () ->
+              new GroundStationBlock(
+                  BlockBehaviour.Properties.of().destroyTime(GroundStationBlock.getDestroyTime())));
+
+  ///////////////////
+  // Basic Blocks
+  ///////////////////
+  static {
+    for (BasicBlocks block : BasicBlocks.values()) {
+      BASIC_BLOCKS.put(block, registerBasicBlock(block));
+    }
+  }
+
+  private DysonBlocks() {}
 
   ///////////////////
   // Util methods

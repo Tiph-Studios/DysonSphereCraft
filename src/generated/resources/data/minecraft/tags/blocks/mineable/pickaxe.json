@@ -1,5 +1,7 @@
 {
   "values": [
-    "dysonsphereproject:solar_generator"
+    "dysonsphereproject:solar_generator",
+    "dysonsphereproject:warp_dislocator",
+    "dysonsphereproject:ground_station"
   ]
 }

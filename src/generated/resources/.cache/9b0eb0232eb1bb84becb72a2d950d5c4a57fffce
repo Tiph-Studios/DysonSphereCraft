@@ -1,4 +1,5 @@
-// 1.20.2	2023-12-10T19:03:07.9528872	Tags for minecraft:block mod id dysonsphereproject
+// 1.20.2	2023-12-13T18:49:44.2197446	Tags for minecraft:block mod id dysonsphereproject
 fc77eee037b715389ca9439108ab91f6a6593fe6 data/dysonsphereproject/tags/blocks/solar_generators.json
-fc77eee037b715389ca9439108ab91f6a6593fe6 data/minecraft/tags/blocks/mineable/pickaxe.json
+b63506e6dbcfbb31d082dfe82f0b0efd68dc6373 data/minecraft/tags/blocks/mineable/pickaxe.json
+8e16428350561671e09357b9518a9e9a7976b114 data/minecraft/tags/blocks/needs_iron_tool.json
 fc77eee037b715389ca9439108ab91f6a6593fe6 data/minecraft/tags/blocks/needs_stone_tool.json

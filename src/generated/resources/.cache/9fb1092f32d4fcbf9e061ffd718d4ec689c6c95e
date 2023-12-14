@@ -1,5 +1,11 @@
-// 1.20.2	2023-12-10T19:03:07.9518858	Recipes
+// 1.20.2	2023-12-13T19:16:07.9239193	Recipes
+fd24e13520dcce1111a561107aeb1b3934aa3495 data/dysonsphereproject/advancements/recipes/misc/ground_station.json
 924b11fa564e4680fe8c181ed6cd0a7c0f285de8 data/dysonsphereproject/advancements/recipes/misc/mirror.json
+4a39e9f99aa3897f7b0cb99a8a5a27ddb9691816 data/dysonsphereproject/advancements/recipes/misc/orbital_collector.json
 86f848595c316917259fd35621a224abd1528149 data/dysonsphereproject/advancements/recipes/misc/solar_generator.json
+0e09abd2b86f0cf65147b4336835899a457409e5 data/dysonsphereproject/advancements/recipes/misc/warp_dislocator.json
+235e60e2b6bd5d494deb8a601a868a536444c5ab data/dysonsphereproject/recipes/ground_station.json
 b4f4230c2cb7fb3a8e7cb844c37a4670c3aaace5 data/dysonsphereproject/recipes/mirror.json
+0977b3be5036072fc2d14b7ea07322465ba6cd8d data/dysonsphereproject/recipes/orbital_collector.json
 4f4a35dd2fd278eb4ab629c195c38f5bb83ee078 data/dysonsphereproject/recipes/solar_generator.json
+2726518053c39e277a450a7a9ec076ba48ade80a data/dysonsphereproject/recipes/warp_dislocator.json

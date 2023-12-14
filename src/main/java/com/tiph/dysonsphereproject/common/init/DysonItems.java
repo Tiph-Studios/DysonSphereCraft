@@ -11,11 +11,8 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class DysonItems {
-  private DysonItems() {}
-
   public static final DeferredRegister.Items ITEMS =
       DeferredRegister.createItems(DysonSphereProject.MODID);
-
   private static final Map<IResource, DeferredItem<Item>> BASIC_ITEMS = new LinkedHashMap<>();
 
   // Basic Items
@@ -24,6 +21,8 @@ public class DysonItems {
       BASIC_ITEMS.put(item, registerBasicItem(item));
     }
   }
+
+  private DysonItems() {}
 
   private static DeferredItem<Item> registerBasicItem(BasicItems item) {
     return ITEMS.registerSimpleItem(item.getRegistrySuffix(), new Item.Properties());

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "F": {
+      "item": "minecraft:firework_rocket"
+    },
+    "P": {
+      "item": "minecraft:phantom_membrane"
+    },
+    "R": {
+      "item": "minecraft:redstone_block"
+    },
+    "S": {
+      "item": "dysonsphereproject:solar_generator"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "PDP",
+    "FRF"
+  ],
+  "result": {
+    "item": "dysonsphereproject:orbital_collector"
+  },
+  "show_notification": true
+}
