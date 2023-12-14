@@ -8,8 +8,8 @@
     "D": {
       "item": "minecraft:diamond_block"
     },
-    "I": {
-      "item": "minecraft:iron_ingot"
+    "L": {
+      "item": "minecraft:lightning_rod"
     },
     "M": {
       "item": "dysonsphereproject:mirror"
@@ -19,7 +19,7 @@
     }
   },
   "pattern": [
-    "MIM",
+    "MLM",
     "MRM",
     "BDB"
   ],

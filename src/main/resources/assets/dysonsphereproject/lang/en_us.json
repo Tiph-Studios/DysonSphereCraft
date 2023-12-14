@@ -1,5 +1,10 @@
 {
   "block.dysonsphereproject.solar_generator": "Solar Generator",
+  "block.dysonsphereproject.ground_station": "Ground Station",
+  "block.dysonsphereproject.warp_dislocator": "Warp Dislocator",
+
+  "tooltip.dysonspherecraft.solar_generator.tooltip": "Generates %1$s FE/t",
+
   "item.dysonsphereproject.mirror": "Mirror",
-  "tooltip.dysonspherecraft.solar_generator.tooltip": "Generates %1$s FE/t"
+  "item.dysonsphereproject.orbital_collector": "Orbital Collector"
 }

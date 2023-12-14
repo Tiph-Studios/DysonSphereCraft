@@ -5,6 +5,9 @@
     "B": {
       "item": "minecraft:iron_block"
     },
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
     "I": {
       "item": "minecraft:iron_bars"
     },
@@ -12,13 +15,13 @@
       "item": "minecraft:piston"
     },
     "R": {
-      "item": "minecraft:redstone"
+      "item": "minecraft:redstone_block"
     }
   },
   "pattern": [
     "I I",
-    "BRB",
-    "BPB"
+    "BEB",
+    "RPR"
   ],
   "result": {
     "item": "dysonsphereproject:warp_dislocator"

@@ -24,6 +24,10 @@ public class DysonRecipeProvider extends RecipeProvider implements IConditionBui
 
   @Override
   protected void buildRecipes(@NotNull RecipeOutput recipeOutput) {
+    ///////////////
+    // Items
+    ///////////////
+
     // Mirror
     ShapedRecipeBuilder.shaped(RecipeCategory.MISC, DysonItems.getBasicItem(BasicItems.MIRROR))
         .pattern("GGG")
@@ -33,6 +37,24 @@ public class DysonRecipeProvider extends RecipeProvider implements IConditionBui
         .define('I', Items.IRON_INGOT)
         .unlockedBy(getHasName(Items.GLASS_PANE), has(Items.GLASS_PANE))
         .save(recipeOutput);
+
+    // Mirror
+    ShapedRecipeBuilder.shaped(
+            RecipeCategory.MISC, DysonItems.getBasicItem(BasicItems.ORBITAL_COLLECTOR))
+        .pattern("SSS")
+        .pattern("PDP")
+        .pattern("FRF")
+        .define('S', DysonBlocks.SOLAR_GENERATOR.asItem())
+        .define('P', Items.PHANTOM_MEMBRANE)
+        .define('D', Items.DIAMOND)
+        .define('F', Items.FIREWORK_ROCKET)
+        .define('R', Items.REDSTONE_BLOCK)
+        .unlockedBy(getHasName(Items.GLASS_PANE), has(Items.GLASS_PANE))
+        .save(recipeOutput);
+
+    ///////////////
+    // Blocks
+    ///////////////
 
     // Solar Generator
     ShapedRecipeBuilder.shaped(RecipeCategory.MISC, DysonBlocks.SOLAR_GENERATOR)
@@ -49,11 +71,11 @@ public class DysonRecipeProvider extends RecipeProvider implements IConditionBui
 
     // Ground Station
     ShapedRecipeBuilder.shaped(RecipeCategory.MISC, DysonBlocks.GROUND_STATION)
-        .pattern("MIM")
+        .pattern("MLM")
         .pattern("MRM")
         .pattern("BDB")
         .define('M', DysonItems.getBasicItem(BasicItems.MIRROR))
-        .define('I', Items.IRON_INGOT)
+        .define('L', Items.LIGHTNING_ROD)
         .define('R', Items.REDSTONE)
         .define('B', Items.IRON_BLOCK)
         .define('D', Items.DIAMOND_BLOCK)
@@ -65,12 +87,13 @@ public class DysonRecipeProvider extends RecipeProvider implements IConditionBui
     // Warp Dislocator
     ShapedRecipeBuilder.shaped(RecipeCategory.MISC, DysonBlocks.WARP_DISLOCATOR)
         .pattern("I I")
-        .pattern("BRB")
-        .pattern("BPB")
+        .pattern("BEB")
+        .pattern("RPR")
         .define('I', Items.IRON_BARS)
-        .define('R', Items.REDSTONE)
+        .define('R', Items.REDSTONE_BLOCK)
         .define('P', Items.PISTON)
         .define('B', Items.IRON_BLOCK)
+        .define('E', Items.ENDER_PEARL)
         .unlockedBy(
             getHasName(DysonItems.getBasicItem(BasicItems.ORBITAL_COLLECTOR).get()),
             has(DysonItems.getBasicItem(BasicItems.ORBITAL_COLLECTOR)))

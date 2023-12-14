@@ -3,6 +3,7 @@ package com.tiph.dysonsphereproject.datagen;
 import com.tiph.dysonsphereproject.DysonSphereProject;
 import com.tiph.dysonsphereproject.common.blocks.BasicBlocks;
 import com.tiph.dysonsphereproject.common.blocks.GroundStationBlock;
+import com.tiph.dysonsphereproject.common.blocks.WarpDislocatorBlock;
 import com.tiph.dysonsphereproject.common.init.DysonBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
@@ -25,7 +26,7 @@ public class DysonBlockModelProvider extends BlockModelProvider {
     }
 
     simpleBlockItem(GroundStationBlock.getRegistrySuffix(), DysonBlocks.GROUND_STATION);
-    simpleBlockItem(GroundStationBlock.getRegistrySuffix(), DysonBlocks.WARP_DISLOCATOR);
+    simpleBlockItem(WarpDislocatorBlock.getRegistrySuffix(), DysonBlocks.WARP_DISLOCATOR);
 
     // Solar generator
     this.cubeAll(
