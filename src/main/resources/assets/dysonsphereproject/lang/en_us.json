@@ -6,5 +6,7 @@
   "tooltip.dysonspherecraft.solar_generator.tooltip": "Generates %1$s FE/t",
 
   "item.dysonsphereproject.mirror": "Mirror",
-  "item.dysonsphereproject.orbital_collector": "Orbital Collector"
+  "item.dysonsphereproject.orbital_collector": "Orbital Collector",
+
+  "creativetab.dsp_tab": "Dyson Sphere Project"
 }
