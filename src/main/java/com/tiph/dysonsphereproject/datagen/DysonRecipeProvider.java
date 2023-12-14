@@ -49,7 +49,9 @@ public class DysonRecipeProvider extends RecipeProvider implements IConditionBui
         .define('D', Items.DIAMOND)
         .define('F', Items.FIREWORK_ROCKET)
         .define('R', Items.REDSTONE_BLOCK)
-        .unlockedBy(getHasName(Items.GLASS_PANE), has(Items.GLASS_PANE))
+        .unlockedBy(
+            getHasName(DysonBlocks.SOLAR_GENERATOR.asItem()),
+            has(DysonBlocks.SOLAR_GENERATOR.asItem()))
         .save(recipeOutput);
 
     ///////////////
