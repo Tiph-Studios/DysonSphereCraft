@@ -18,8 +18,6 @@ public class DysonTags {
 
     // Example tag key to use to check block types in code
     public static final TagKey<Block> SOLAR_GENERATORS = tag("solar_generators");
-    public static final TagKey<Block> GROUND_STATION = tag("ground_station");
-    public static final TagKey<Block> WARP_DISLOCATOR = tag("warp_dislocator");
 
     private Blocks() {
       throw new UnsupportedOperationException("Do not instantiate block utility class");

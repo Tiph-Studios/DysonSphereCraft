@@ -25,10 +25,14 @@ public class DysonBlockTagGenerator extends BlockTagsProvider {
   protected void addTags(@NotNull HolderLookup.Provider provider) {
     this.tag(DysonTags.Blocks.SOLAR_GENERATORS).add(DysonBlocks.SOLAR_GENERATOR.get());
     this.tag(BlockTags.NEEDS_STONE_TOOL).add(DysonBlocks.SOLAR_GENERATOR.get());
-    this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(DysonBlocks.SOLAR_GENERATOR.get());
 
-    this.tag(DysonTags.Blocks.GROUND_STATION).add(DysonBlocks.GROUND_STATION.get());
+    this.tag(BlockTags.NEEDS_IRON_TOOL)
+        .add(DysonBlocks.GROUND_STATION.get())
+        .add(DysonBlocks.WARP_DISLOCATOR.get());
 
-    this.tag(DysonTags.Blocks.WARP_DISLOCATOR).add(DysonBlocks.WARP_DISLOCATOR.get());
+    this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
+        .add(DysonBlocks.SOLAR_GENERATOR.get())
+        .add(DysonBlocks.WARP_DISLOCATOR.get())
+        .add(DysonBlocks.GROUND_STATION.get());
   }
 }
