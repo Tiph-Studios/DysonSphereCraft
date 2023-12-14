@@ -13,29 +13,33 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModCreativeModeTabs {
 
-    private ModCreativeModeTabs(){
-        throw new ClassCastException("Do not instansiate");
-    }
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
-            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, DysonSphereProject.MODID);
+  private ModCreativeModeTabs() {
+    throw new ClassCastException("Do not instansiate");
+  }
 
+  public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
+      DeferredRegister.create(Registries.CREATIVE_MODE_TAB, DysonSphereProject.MODID);
 
-    public static void register(IEventBus eventBus){
-        CREATIVE_MODE_TABS.register(eventBus);
-        CREATIVE_MODE_TABS.register("dsp_tab", () -> CreativeModeTab.builder()
+  public static void register(IEventBus eventBus) {
+    CREATIVE_MODE_TABS.register(eventBus);
+    CREATIVE_MODE_TABS.register(
+        "dsp_tab",
+        () ->
+            CreativeModeTab.builder()
                 .icon(() -> new ItemStack(DysonBlocks.SOLAR_GENERATOR))
                 .title(Component.translatable("creativetab.dsp_tab"))
-                .displayItems((param, output) -> {
-                    //BLOCKS
-                    output.accept(DysonBlocks.getBasicBlock(BasicBlocks.EXAMPLE_BASIC_BLOCK));
-                    output.accept(DysonBlocks.SOLAR_GENERATOR);
-                    output.accept(DysonBlocks.WARP_DISLOCATOR);
-                    output.accept(DysonBlocks.GROUND_STATION);
+                .displayItems(
+                    (param, output) -> {
+                      // BLOCKS
+                      output.accept(DysonBlocks.getBasicBlock(BasicBlocks.EXAMPLE_BASIC_BLOCK));
+                      output.accept(DysonBlocks.SOLAR_GENERATOR);
+                      output.accept(DysonBlocks.WARP_DISLOCATOR);
+                      output.accept(DysonBlocks.GROUND_STATION);
 
-                    //ITEMS
-                    output.accept(DysonItems.getBasicItem(BasicItems.MIRROR));
-                    output.accept(DysonItems.getBasicItem(BasicItems.ORBITAL_COLLECTOR));
-                })
+                      // ITEMS
+                      output.accept(DysonItems.getBasicItem(BasicItems.MIRROR));
+                      output.accept(DysonItems.getBasicItem(BasicItems.ORBITAL_COLLECTOR));
+                    })
                 .build());
-    }
+  }
 }

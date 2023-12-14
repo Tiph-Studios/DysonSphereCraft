@@ -38,7 +38,7 @@ public class DysonRecipeProvider extends RecipeProvider implements IConditionBui
         .unlockedBy(getHasName(Items.GLASS_PANE), has(Items.GLASS_PANE))
         .save(recipeOutput);
 
-    // Mirror
+    // Orbital Collector
     ShapedRecipeBuilder.shaped(
             RecipeCategory.MISC, DysonItems.getBasicItem(BasicItems.ORBITAL_COLLECTOR))
         .pattern("SSS")
