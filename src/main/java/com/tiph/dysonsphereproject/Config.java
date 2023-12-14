@@ -22,7 +22,7 @@ public class Config {
       BUILDER
           .comment("What you want the introduction message to be for the magic number")
           .define("magicNumberIntroduction", "The magic number is... ");
-  static final ModConfigSpec SPEC = BUILDER.build();
+
   private static final ModConfigSpec.BooleanValue LOG_DIRT_BLOCK =
       BUILDER.comment("Whether to log the dirt block on common setup").define("logDirtBlock", true);
   private static final ModConfigSpec.IntValue MAGIC_NUMBER =
@@ -36,6 +36,8 @@ public class Config {
   static int magicNumber;
   static String magicNumberIntroduction;
   static Set<Item> items;
+
+  static final ModConfigSpec SPEC = BUILDER.build();
 
   private Config() {
     throw new UnsupportedOperationException("Do not instantiate");
