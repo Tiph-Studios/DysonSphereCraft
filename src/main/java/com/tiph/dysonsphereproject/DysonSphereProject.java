@@ -6,6 +6,7 @@ import com.tiph.dysonsphereproject.common.init.DysonBlockEntities;
 import com.tiph.dysonsphereproject.common.init.DysonBlocks;
 import com.tiph.dysonsphereproject.common.init.DysonItems;
 import com.tiph.dysonsphereproject.common.items.BasicItems;
+import com.tiph.dysonsphereproject.common.items.ModCreativeModeTabs;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -31,13 +32,15 @@ public class DysonSphereProject {
 
   // Directly reference a slf4j logger
   private static final Logger LOGGER = LogUtils.getLogger();
-
   // The constructor for the mod class is the first code that is run when your mod is loaded.
   // FML will recognize some parameter types like IEventBus or ModContainer and pass them in
   // automatically.
   public DysonSphereProject(IEventBus modEventBus) {
     // Register the commonSetup method for modloading
     modEventBus.addListener(this::commonSetup);
+
+    // Load blocks and items in the creative tabs
+    ModCreativeModeTabs.register(modEventBus);
 
     // Register the Deferred Register to the mod event bus so blocks get registered
     DysonBlocks.register(modEventBus);
@@ -48,9 +51,6 @@ public class DysonSphereProject {
 
     // Register ourselves for server and other game events we are interested in
     NeoForge.EVENT_BUS.register(this);
-
-    // Register the item to a creative tab
-    modEventBus.addListener(this::addCreative);
 
     // Register our mod's ModConfigSpec so that FML can create and load the config file for us
     ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -66,18 +66,6 @@ public class DysonSphereProject {
     LOGGER.info("{}{}", Config.magicNumberIntroduction, Config.magicNumber);
 
     Config.items.forEach(item -> LOGGER.info("ITEM >> {}", item));
-  }
-
-  // Add the example block item to the building blocks tab
-  private void addCreative(BuildCreativeModeTabContentsEvent event) {
-    if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
-      event.accept(DysonBlocks.getBasicBlock(BasicBlocks.EXAMPLE_BASIC_BLOCK));
-      event.accept(DysonBlocks.SOLAR_GENERATOR);
-      event.accept(DysonBlocks.WARP_DISLOCATOR);
-      event.accept(DysonBlocks.GROUND_STATION);
-      event.accept(DysonItems.getBasicItem(BasicItems.MIRROR));
-      event.accept(DysonItems.getBasicItem(BasicItems.ORBITAL_COLLECTOR));
-    }
   }
 
   // You can use SubscribeEvent and let the Event Bus discover methods to call
