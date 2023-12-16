@@ -8,9 +8,9 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public class ModCreativeModeTabs {
+public class DysonCreativeModeTab {
 
-  private ModCreativeModeTabs() {
+  private DysonCreativeModeTab() {
     throw new ClassCastException("Do not instantiate");
   }
 

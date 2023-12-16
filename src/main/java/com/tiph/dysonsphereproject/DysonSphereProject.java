@@ -3,8 +3,8 @@ package com.tiph.dysonsphereproject;
 import com.mojang.logging.LogUtils;
 import com.tiph.dysonsphereproject.common.init.DysonBlockEntities;
 import com.tiph.dysonsphereproject.common.init.DysonBlocks;
+import com.tiph.dysonsphereproject.common.init.DysonCreativeModeTab;
 import com.tiph.dysonsphereproject.common.init.DysonItems;
-import com.tiph.dysonsphereproject.common.init.ModCreativeModeTabs;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.Blocks;
@@ -37,7 +37,7 @@ public class DysonSphereProject {
     modEventBus.addListener(this::commonSetup);
 
     // Load blocks and items in the creative tabs
-    ModCreativeModeTabs.register(modEventBus);
+    DysonCreativeModeTab.register(modEventBus);
 
     // Register the Deferred Register to the mod event bus so blocks get registered
     DysonBlocks.register(modEventBus);
