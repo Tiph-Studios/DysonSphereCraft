@@ -1,6 +1,7 @@
 package com.tiph.dysonsphereproject.common.blocks.entities;
 
 import com.tiph.dysonsphereproject.common.init.DysonBlockEntities;
+import com.tiph.dysonsphereproject.util.DysonEnergyStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -14,13 +15,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.capabilities.Capabilities;
 import net.neoforged.neoforge.common.capabilities.Capability;
 import net.neoforged.neoforge.common.util.LazyOptional;
-import net.neoforged.neoforge.energy.EnergyStorage;
 import net.neoforged.neoforge.energy.IEnergyStorage;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class SolarGeneratorBlockEntity extends DysonBlockEntity implements MenuProvider {
-  private final EnergyStorage energyStorage = new EnergyStorage(100_000, 20, 20, 50000);
+  private DysonEnergyStorage energyStorage = new DysonEnergyStorage(100_000, 0, 20);
 
   private LazyOptional<IEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
 
@@ -31,7 +31,7 @@ public class SolarGeneratorBlockEntity extends DysonBlockEntity implements MenuP
   @Override
   public @NotNull <T> LazyOptional<T> getCapability(
       @NotNull Capability<T> cap, @Nullable Direction side) {
-    if (cap == Capabilities.ENERGY) {
+    if (cap == Capabilities.ENERGY && side != Direction.UP) {
       return lazyEnergyHandler.cast();
     }
     return super.getCapability(cap, side);
