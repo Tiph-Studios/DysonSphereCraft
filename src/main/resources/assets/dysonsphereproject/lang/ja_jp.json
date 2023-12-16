@@ -1,5 +1,14 @@
 {
   "block.dysonsphereproject.solar_generator": "ソーラー発電機",
+  "block.dysonsphereproject.ground_station": "地上局",
+  "block.dysonsphereproject.warp_dislocator": "ワープ移動機",
+
+  "tooltip.dysonspherecraft.solar_generator.tooltip": "発電するエネルギーは %1$s FE/t",
+
   "item.dysonsphereproject.mirror": "鏡",
-  "tooltip.dysonspherecraft.solar_generator.tooltip": "発電するエネルギーは %1$s FE/t"
+  "item.dysonsphereproject.orbital_collector": "軌道収穫機",
+
+
+  "creativetab.dsp_tab": "ダイソン球プロジェクト"
+
 }
