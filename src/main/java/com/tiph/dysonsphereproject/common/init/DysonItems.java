@@ -3,7 +3,6 @@ package com.tiph.dysonsphereproject.common.init;
 import com.tiph.dysonsphereproject.DysonSphereProject;
 import com.tiph.dysonsphereproject.common.api.IResource;
 import com.tiph.dysonsphereproject.common.items.BasicItems;
-
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
