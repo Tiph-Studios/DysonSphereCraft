@@ -29,7 +29,9 @@ public class DysonBlocks {
           SolarGeneratorBlock.getRegistrySuffix(),
           () ->
               new SolarGeneratorBlock(
-                  BlockBehaviour.Properties.of().destroyTime(SolarGeneratorBlock.getDestroyTime()),
+                  BlockBehaviour.Properties.of()
+                      .destroyTime(SolarGeneratorBlock.getDestroyTime())
+                      .requiresCorrectToolForDrops(),
                   4));
   public static final DeferredBlock<WarpDislocatorBlock> WARP_DISLOCATOR =
       registerBlockAndItem(
@@ -37,13 +39,16 @@ public class DysonBlocks {
           () ->
               new WarpDislocatorBlock(
                   BlockBehaviour.Properties.of()
-                      .destroyTime(WarpDislocatorBlock.getDestroyTime())));
+                      .destroyTime(WarpDislocatorBlock.getDestroyTime())
+                      .requiresCorrectToolForDrops()));
   public static final DeferredBlock<GroundStationBlock> GROUND_STATION =
       registerBlockAndItem(
           GroundStationBlock.getRegistrySuffix(),
           () ->
               new GroundStationBlock(
-                  BlockBehaviour.Properties.of().destroyTime(GroundStationBlock.getDestroyTime())));
+                  BlockBehaviour.Properties.of()
+                      .destroyTime(GroundStationBlock.getDestroyTime())
+                      .requiresCorrectToolForDrops()));
 
   ///////////////////
   // Basic Blocks
