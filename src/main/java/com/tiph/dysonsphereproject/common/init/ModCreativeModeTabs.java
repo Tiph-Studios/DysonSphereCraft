@@ -1,8 +1,6 @@
 package com.tiph.dysonsphereproject.common.init;
 
 import com.tiph.dysonsphereproject.DysonSphereProject;
-import com.tiph.dysonsphereproject.common.blocks.BasicBlocks;
-import com.tiph.dysonsphereproject.common.items.BasicItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
