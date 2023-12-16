@@ -6,6 +6,8 @@ import com.tiph.dysonsphereproject.common.blocks.BasicBlocks;
 import com.tiph.dysonsphereproject.common.blocks.GroundStationBlock;
 import com.tiph.dysonsphereproject.common.blocks.SolarGeneratorBlock;
 import com.tiph.dysonsphereproject.common.blocks.WarpDislocatorBlock;
+
+import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Supplier;
@@ -20,7 +22,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class DysonBlocks {
   public static final DeferredRegister.Blocks BLOCKS =
       DeferredRegister.createBlocks(DysonSphereProject.MODID);
-  public static final Map<IResource, DeferredBlock<Block>> BASIC_BLOCKS = new LinkedHashMap<>();
+  private static final Map<IResource, DeferredBlock<Block>> BASIC_BLOCKS = new LinkedHashMap<>();
   ///////////////////
   // Special Blocks
   ///////////////////
@@ -80,6 +82,10 @@ public class DysonBlocks {
 
   public static void register(final IEventBus eventBus) {
     BLOCKS.register(eventBus);
+  }
+
+  public static Collection<DeferredBlock<Block>> getBasicBlocks() {
+    return BASIC_BLOCKS.values();
   }
 
   public static DeferredBlock<Block> getBasicBlock(BasicBlocks block) {

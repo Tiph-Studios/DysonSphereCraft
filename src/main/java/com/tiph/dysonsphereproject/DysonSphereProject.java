@@ -4,7 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.tiph.dysonsphereproject.common.init.DysonBlockEntities;
 import com.tiph.dysonsphereproject.common.init.DysonBlocks;
 import com.tiph.dysonsphereproject.common.init.DysonItems;
-import com.tiph.dysonsphereproject.common.items.ModCreativeModeTabs;
+import com.tiph.dysonsphereproject.common.init.ModCreativeModeTabs;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.Blocks;

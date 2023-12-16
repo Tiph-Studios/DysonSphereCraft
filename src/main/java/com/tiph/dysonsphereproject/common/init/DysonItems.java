@@ -3,6 +3,8 @@ package com.tiph.dysonsphereproject.common.init;
 import com.tiph.dysonsphereproject.DysonSphereProject;
 import com.tiph.dysonsphereproject.common.api.IResource;
 import com.tiph.dysonsphereproject.common.items.BasicItems;
+
+import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import net.minecraft.world.item.Item;
@@ -30,6 +32,10 @@ public class DysonItems {
 
   public static void register(final IEventBus eventBus) {
     ITEMS.register(eventBus);
+  }
+
+  public static Collection<DeferredItem<Item>> getBasicItems() {
+    return BASIC_ITEMS.values();
   }
 
   public static DeferredItem<Item> getBasicItem(BasicItems item) {
