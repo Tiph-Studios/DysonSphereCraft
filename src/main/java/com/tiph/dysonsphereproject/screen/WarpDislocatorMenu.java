@@ -1,6 +1,6 @@
 package com.tiph.dysonsphereproject.screen;
 
-import com.tiph.dysonsphereproject.common.blocks.entities.WarpDislocatorBlockEntity;
+import com.tiph.dysonsphereproject.common.blocks.entities.warpdislocator.WarpDislocatorBlockEntity;
 import com.tiph.dysonsphereproject.common.init.DysonBlocks;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
@@ -22,13 +22,13 @@ public class WarpDislocatorMenu extends AbstractContainerMenu {
         pContainerId,
         inv,
         inv.player.level().getBlockEntity(extraData.readBlockPos()),
-        new SimpleContainerData(2));
+        new SimpleContainerData(1));
   }
 
   public WarpDislocatorMenu(
       int containerId, Inventory inv, BlockEntity entity, ContainerData data) {
-    super(ModMenuTypes.WARP_DISLOCATOR_MENU.get(), containerId);
-    checkContainerSize(inv, 2);
+    super(DysonMenuTypes.WARP_DISLOCATOR_MENU.get(), containerId);
+    checkContainerSize(inv, 1);
     blockEntity = ((WarpDislocatorBlockEntity) entity);
     this.level = inv.player.level();
     this.data = data;
@@ -40,7 +40,6 @@ public class WarpDislocatorMenu extends AbstractContainerMenu {
         .getCapability(Capabilities.ITEM_HANDLER)
         .ifPresent(
             iItemHandler -> {
-              this.addSlot(new SlotItemHandler(iItemHandler, 0, 80, 11));
               this.addSlot(new SlotItemHandler(iItemHandler, 1, 80, 59));
             });
 

@@ -13,8 +13,8 @@ public class WarpDislocatorScreen extends AbstractContainerScreen<WarpDislocator
   private static final ResourceLocation TEXTURE =
       new ResourceLocation(DysonSphereProject.MODID, "textures/gui/warp_dislocator");
 
-  public WarpDislocatorScreen(WarpDislocatorMenu p_97741_, Inventory p_97742_, Component p_97743_) {
-    super(p_97741_, p_97742_, p_97743_);
+  public WarpDislocatorScreen(WarpDislocatorMenu menu, Inventory inventory, Component component) {
+    super(menu, inventory, component);
   }
 
   @Override
