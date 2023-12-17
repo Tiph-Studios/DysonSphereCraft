@@ -8,7 +8,7 @@ import net.neoforged.neoforge.energy.IEnergyStorage;
 
 public abstract class DysonEnergyBlockEntity extends DysonBlockEntity implements IEnergyStorage {
 
-  protected int energy;
+  private int energy;
 
   protected DysonEnergyBlockEntity(BlockEntityType<?> entityType, BlockPos pos, BlockState state) {
     super(entityType, pos, state);
