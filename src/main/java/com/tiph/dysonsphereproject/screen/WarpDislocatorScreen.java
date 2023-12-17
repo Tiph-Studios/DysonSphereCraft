@@ -11,7 +11,7 @@ import net.minecraft.world.entity.player.Inventory;
 
 public class WarpDislocatorScreen extends AbstractContainerScreen<WarpDislocatorMenu> {
   private static final ResourceLocation TEXTURE =
-      new ResourceLocation(DysonSphereProject.MODID, "textures/gui/warp_dislocator");
+      new ResourceLocation(DysonSphereProject.MODID, "textures/gui/warp_dislocator.png");
 
   public WarpDislocatorScreen(WarpDislocatorMenu menu, Inventory inventory, Component component) {
     super(menu, inventory, component);

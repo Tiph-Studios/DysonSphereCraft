@@ -6,7 +6,9 @@ import com.tiph.dysonsphereproject.common.init.DysonBlocks;
 import com.tiph.dysonsphereproject.common.init.DysonCreativeModeTab;
 import com.tiph.dysonsphereproject.common.init.DysonItems;
 import com.tiph.dysonsphereproject.screen.DysonMenuTypes;
+import com.tiph.dysonsphereproject.screen.WarpDislocatorScreen;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.api.distmarker.Dist;
@@ -89,6 +91,8 @@ public class DysonSphereProject {
       // Some client setup code
       LOGGER.info("HELLO FROM CLIENT SETUP");
       LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+
+      MenuScreens.register(DysonMenuTypes.WARP_DISLOCATOR_MENU.get(), WarpDislocatorScreen::new);
     }
   }
 }
