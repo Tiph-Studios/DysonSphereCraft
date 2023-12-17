@@ -151,21 +151,23 @@ public class WarpDislocatorBlockEntity extends DysonBlockEntity implements MenuP
   @Override
   public AbstractContainerMenu createMenu(
       int i, @NotNull Inventory inventory, @NotNull Player player) {
-    return new WarpDislocatorMenu(i, inventory, this, new ContainerData() {
-      @Override
-      public int get(int i) {
-        return i;
-      }
+    return new WarpDislocatorMenu(
+        i,
+        inventory,
+        this,
+        new ContainerData() {
+          @Override
+          public int get(int i) {
+            return i;
+          }
 
-      @Override
-      public void set(int p_39285_, int p_39286_) {
+          @Override
+          public void set(int p_39285_, int p_39286_) {}
 
-      }
-
-      @Override
-      public int getCount() {
-        return 1;
-      }
-    });
+          @Override
+          public int getCount() {
+            return 1;
+          }
+        });
   }
 }
