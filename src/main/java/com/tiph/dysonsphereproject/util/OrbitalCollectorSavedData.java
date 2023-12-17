@@ -22,6 +22,10 @@ public class OrbitalCollectorSavedData extends SavedData {
     setDirty();
   }
 
+  public int getNumCollectors() {
+    return numCollectors;
+  }
+
   @Override
   public CompoundTag save(CompoundTag compoundTag) {
     compoundTag.putInt(TAG_KEY, numCollectors);

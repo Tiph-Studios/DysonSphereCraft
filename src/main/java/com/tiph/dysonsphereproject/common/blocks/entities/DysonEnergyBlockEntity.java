@@ -16,13 +16,13 @@ public abstract class DysonEnergyBlockEntity extends DysonBlockEntity implements
   }
 
   @Override
-  public int receiveEnergy(int maxReceive, boolean simulate) {
+  public int receiveEnergy(int receiveAmount, boolean simulate) {
     if (!this.canReceive()) {
       return 0;
     } else {
       int energyReceived =
           Math.min(
-              this.getMaxEnergyStored() - this.energy, Math.min(this.getMaxReceive(), maxReceive));
+              this.getMaxEnergyStored() - this.energy, Math.min(this.getMaxReceive(), receiveAmount));
       if (!simulate) {
         this.energy += energyReceived;
       }
@@ -32,11 +32,11 @@ public abstract class DysonEnergyBlockEntity extends DysonBlockEntity implements
   }
 
   @Override
-  public int extractEnergy(int maxExtract, boolean simulate) {
+  public int extractEnergy(int extractAmount, boolean simulate) {
     if (!this.canExtract()) {
       return 0;
     } else {
-      int energyExtracted = Math.min(this.energy, Math.min(this.getMaxExtract(), maxExtract));
+      int energyExtracted = Math.min(this.energy, Math.min(this.getMaxExtract(), extractAmount));
       if (!simulate) {
         this.energy -= energyExtracted;
       }

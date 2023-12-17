@@ -35,7 +35,6 @@ public class WarpDislocatorBlockEntity extends DysonEnergyBlockEntity implements
   //
   private static final int MAX_CAPACITY = 100_000;
   private static final int MAX_RECEIVE = 500;
-  private static final int MAX_EXTRACT = 0;
 
   private LazyOptional<IEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
   private static final int FIRING_ENERGY_COST = 50_000;
@@ -198,7 +197,8 @@ public class WarpDislocatorBlockEntity extends DysonEnergyBlockEntity implements
 
   @Override
   int getMaxExtract() {
-    return MAX_EXTRACT;
+    // Should not have energy extracted.
+    return 0;
   }
 
   @Override

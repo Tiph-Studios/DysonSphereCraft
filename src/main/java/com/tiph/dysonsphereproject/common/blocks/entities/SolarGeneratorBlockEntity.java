@@ -20,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 public class SolarGeneratorBlockEntity extends DysonEnergyBlockEntity implements MenuProvider {
 
   private static final int MAX_CAPACITY = 100_000;
-  private static final int MAX_RECEIVE = 4;
+  private static final int GENERATION_AMOUNT = 4;
   private static final int MAX_EXTRACT = 20;
 
   private LazyOptional<IEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
@@ -64,7 +64,7 @@ public class SolarGeneratorBlockEntity extends DysonEnergyBlockEntity implements
 
   public void tick(final Level level, final BlockPos pos, final BlockState blockState) {
     if (level.isDay() && level.canSeeSky(pos)) {
-      this.receiveEnergy(MAX_RECEIVE, false);
+      this.receiveEnergy(GENERATION_AMOUNT, false);
       setChanged(level, pos, blockState);
     }
   }
@@ -76,7 +76,8 @@ public class SolarGeneratorBlockEntity extends DysonEnergyBlockEntity implements
 
   @Override
   int getMaxReceive() {
-    return MAX_RECEIVE;
+    // Should not receive energy from other sources.
+    return 0;
   }
 
   @Override
