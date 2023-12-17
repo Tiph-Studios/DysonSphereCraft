@@ -90,6 +90,7 @@ dependencies {
     // For all intends and purposes: You can treat this dependency as if it is a normal library you would use.
     implementation "net.neoforged:neoforge:${neo_version}"
 
+    compileOnly "appeng:appliedenergistics2-neoforge:${ae2_version}"
     runtimeOnly "appeng:appliedenergistics2-neoforge:${ae2_version}"
 
     // Example mod dependency with JEI

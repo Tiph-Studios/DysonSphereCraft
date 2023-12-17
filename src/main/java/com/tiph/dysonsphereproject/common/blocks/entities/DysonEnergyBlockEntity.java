@@ -12,6 +12,7 @@ public abstract class DysonEnergyBlockEntity extends DysonBlockEntity implements
 
   protected DysonEnergyBlockEntity(BlockEntityType<?> entityType, BlockPos pos, BlockState state) {
     super(entityType, pos, state);
+    energy = 0;
   }
 
   @Override
