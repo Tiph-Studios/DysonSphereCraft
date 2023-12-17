@@ -6,6 +6,7 @@ import com.tiph.dysonsphereproject.common.init.DysonBlockEntities;
 import com.tiph.dysonsphereproject.common.init.DysonBlocks;
 import com.tiph.dysonsphereproject.common.init.DysonItems;
 import com.tiph.dysonsphereproject.common.items.BasicItems;
+import com.tiph.dysonsphereproject.screen.ModMenuTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -45,6 +46,9 @@ public class DysonSphereProject {
     DysonItems.register(modEventBus);
     // Register the Deferred Register to the mod event bus so block entities get registered
     DysonBlockEntities.register(modEventBus);
+
+    // Register menus
+    ModMenuTypes.register(modEventBus);
 
     // Register ourselves for server and other game events we are interested in
     NeoForge.EVENT_BUS.register(this);

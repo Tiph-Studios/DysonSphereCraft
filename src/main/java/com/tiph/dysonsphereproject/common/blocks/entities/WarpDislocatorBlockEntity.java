@@ -1,6 +1,8 @@
 package com.tiph.dysonsphereproject.common.blocks.entities;
 
 import com.tiph.dysonsphereproject.common.init.DysonBlockEntities;
+import com.tiph.dysonsphereproject.screen.ModMenuTypes;
+import com.tiph.dysonsphereproject.screen.WarpDislocatorMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
@@ -10,6 +12,7 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.data.ModelData;
 import net.neoforged.neoforge.common.capabilities.Capability;
@@ -29,8 +32,23 @@ public class WarpDislocatorBlockEntity extends DysonBlockEntity implements MenuP
 
   @Nullable
   @Override
-  public AbstractContainerMenu createMenu(int p_39954_, Inventory p_39955_, Player p_39956_) {
-    return null;
+  public AbstractContainerMenu createMenu(int containerId, Inventory inv, Player player) {
+    return new WarpDislocatorMenu(containerId,inv,this,new ContainerData() {
+      @Override
+      public int get(int p_39284_) {
+        return 0;
+      }
+
+      @Override
+      public void set(int p_39285_, int p_39286_) {
+
+      }
+
+      @Override
+      public int getCount() {
+        return 0;
+      }
+    })
   }
 
   @Override

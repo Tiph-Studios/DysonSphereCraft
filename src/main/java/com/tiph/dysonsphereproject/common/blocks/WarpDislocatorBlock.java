@@ -51,9 +51,8 @@ public class WarpDislocatorBlock extends BaseEntityBlock {
       @NotNull BlockHitResult blockHitResult) {
     if (!level.isClientSide()) {
       BlockEntity entity = level.getBlockEntity(blockPos);
-      if (entity instanceof WarpDislocatorBlockEntity) {
-        NetworkHooks.openScreen(
-            ((ServerPlayer) player), (WarpDislocatorBlockEntity) entity, blockPos);
+      if (entity instanceof WarpDislocatorBlockEntity warpEntity) {
+        NetworkHooks.openScreen(((ServerPlayer) player), warpEntity, blockPos);
       } else {
         throw new IllegalStateException("Our Container provider is missing!");
       }
