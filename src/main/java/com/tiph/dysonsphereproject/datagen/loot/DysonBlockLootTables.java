@@ -21,7 +21,7 @@ public class DysonBlockLootTables extends BlockLootSubProvider {
     this.dropSelf(DysonBlocks.WARP_DISLOCATOR.get());
     this.dropSelf(DysonBlocks.GROUND_STATION.get());
 
-    for (final DeferredBlock<Block> block : DysonBlocks.BASIC_BLOCKS.values()) {
+    for (final DeferredBlock<Block> block : DysonBlocks.getBasicBlocks()) {
       this.dropSelf(block.get());
     }
   }

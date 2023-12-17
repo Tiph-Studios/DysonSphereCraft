@@ -17,7 +17,7 @@ public class DysonBlockStateProvider extends BlockStateProvider {
   @Override
   protected void registerStatesAndModels() {
 
-    for (final DeferredBlock<Block> block : DysonBlocks.BASIC_BLOCKS.values()) {
+    for (final DeferredBlock<Block> block : DysonBlocks.getBasicBlocks()) {
       blockWithItem(block);
     }
 
