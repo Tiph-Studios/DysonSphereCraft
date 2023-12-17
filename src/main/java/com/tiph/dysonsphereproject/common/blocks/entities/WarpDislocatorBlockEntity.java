@@ -3,6 +3,7 @@ package com.tiph.dysonsphereproject.common.blocks.entities;
 import com.tiph.dysonsphereproject.common.init.DysonBlockEntities;
 import com.tiph.dysonsphereproject.common.init.DysonItems;
 import com.tiph.dysonsphereproject.common.items.BasicItems;
+import com.tiph.dysonsphereproject.screen.WarpDislocatorMenu;
 import com.tiph.dysonsphereproject.util.OrbitalCollectorSavedData;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -15,6 +16,7 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.capabilities.Capabilities;
@@ -172,7 +174,24 @@ public class WarpDislocatorBlockEntity extends DysonEnergyBlockEntity implements
   @Override
   public AbstractContainerMenu createMenu(
       int i, @NotNull Inventory inventory, @NotNull Player player) {
-    return null;
+    return new WarpDislocatorMenu(
+        i,
+        inventory,
+        this,
+        new ContainerData() {
+          @Override
+          public int get(int i) {
+            return i;
+          }
+
+          @Override
+          public void set(int p_39285_, int p_39286_) {}
+
+          @Override
+          public int getCount() {
+            return 1;
+          }
+        });
   }
 
   //

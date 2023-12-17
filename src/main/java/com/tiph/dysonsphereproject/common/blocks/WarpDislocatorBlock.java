@@ -4,6 +4,10 @@ import com.tiph.dysonsphereproject.common.blocks.entities.WarpDislocatorBlockEnt
 import com.tiph.dysonsphereproject.common.init.DysonBlockEntities;
 import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.RenderShape;
@@ -11,6 +15,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
+import net.neoforged.neoforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 
 public class WarpDislocatorBlock extends BaseEntityBlock {
@@ -33,6 +39,26 @@ public class WarpDislocatorBlock extends BaseEntityBlock {
   @Override
   public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
     return new WarpDislocatorBlockEntity(pos, state);
+  }
+
+  @Override
+  public @NotNull InteractionResult use(
+      @NotNull BlockState blockState,
+      Level level,
+      @NotNull BlockPos blockPos,
+      @NotNull Player player,
+      @NotNull InteractionHand interactionHand,
+      @NotNull BlockHitResult blockHitResult) {
+    if (!level.isClientSide()) {
+      BlockEntity entity = level.getBlockEntity(blockPos);
+      if (entity instanceof WarpDislocatorBlockEntity warpEntity) {
+        NetworkHooks.openScreen(((ServerPlayer) player), warpEntity, blockPos);
+      } else {
+        throw new IllegalStateException("Our Container provider is missing!");
+      }
+    }
+
+    return InteractionResult.sidedSuccess(level.isClientSide);
   }
 
   @Override
