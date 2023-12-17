@@ -1,10 +1,8 @@
-package com.tiph.dysonsphereproject.common.blocks.entities.warpdislocator;
+package com.tiph.dysonsphereproject.common.blocks.entities;
 
-import com.tiph.dysonsphereproject.common.blocks.entities.DysonBlockEntity;
 import com.tiph.dysonsphereproject.common.init.DysonBlockEntities;
 import com.tiph.dysonsphereproject.common.init.DysonItems;
 import com.tiph.dysonsphereproject.common.items.BasicItems;
-import com.tiph.dysonsphereproject.util.DysonEnergyStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -24,12 +22,21 @@ import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class WarpDislocatorBlockEntity extends DysonBlockEntity implements MenuProvider {
+public class WarpDislocatorBlockEntity extends DysonEnergyBlockEntity implements MenuProvider {
 
-  private final DysonEnergyStorage energyStorage = new DysonEnergyStorage(100_000, 500, 0);
+  //
+  // ENERGY STORAGE
+  //
+  private static final int MAX_CAPACITY = 100_000;
+  private static final int MAX_RECEIVE = 500;
+  private static final int MAX_EXTRACT = 0;
+
   private LazyOptional<IEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
   private static final int FIRING_ENERGY_COST = 50_000;
 
+  //
+  // ITEM STORAGE
+  //
   private final ItemStackHandler itemHandler = new WarpDislocatorItemStackHandler(1);
   private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
   private static final int INPUT_SLOT = 0;
@@ -65,7 +72,7 @@ public class WarpDislocatorBlockEntity extends DysonBlockEntity implements MenuP
   @Override
   public void onLoad() {
     super.onLoad();
-    lazyEnergyHandler = LazyOptional.of(() -> energyStorage);
+    lazyEnergyHandler = LazyOptional.of(() -> this);
     lazyItemHandler = LazyOptional.of(() -> itemHandler);
   }
 
@@ -78,7 +85,6 @@ public class WarpDislocatorBlockEntity extends DysonBlockEntity implements MenuP
 
   @Override
   protected void saveAdditional(CompoundTag compoundTag) {
-    compoundTag.putInt("energy", energyStorage.getEnergyStored());
     compoundTag.put("inventory", itemHandler.serializeNBT());
     compoundTag.putInt("dislocationProgress", dislocationProgress);
     super.saveAdditional(compoundTag);
@@ -86,7 +92,6 @@ public class WarpDislocatorBlockEntity extends DysonBlockEntity implements MenuP
 
   @Override
   public void load(CompoundTag compoundTag) {
-    energyStorage.deserializeNBT(compoundTag.get("energy"));
     itemHandler.deserializeNBT(compoundTag.getCompound("inventory"));
     dislocationProgress = compoundTag.getInt("dislocationProgress");
     super.load(compoundTag);
@@ -121,7 +126,7 @@ public class WarpDislocatorBlockEntity extends DysonBlockEntity implements MenuP
   }
 
   private boolean hasRequiredEnergy() {
-    return energyStorage.getEnergyStored() >= FIRING_ENERGY_COST;
+    return this.getEnergyStored() >= FIRING_ENERGY_COST;
   }
 
   private void fireCollector(final Level level) {
@@ -150,5 +155,34 @@ public class WarpDislocatorBlockEntity extends DysonBlockEntity implements MenuP
   public AbstractContainerMenu createMenu(
       int i, @NotNull Inventory inventory, @NotNull Player player) {
     return null;
+  }
+
+  //
+  // OVERRIDE METHODS - ENERGY STORAGE
+  //
+
+  @Override
+  public int getMaxEnergyStored() {
+    return MAX_CAPACITY;
+  }
+
+  @Override
+  int getMaxExtract() {
+    return MAX_EXTRACT;
+  }
+
+  @Override
+  int getMaxReceive() {
+    return MAX_RECEIVE;
+  }
+
+  @Override
+  public boolean canExtract() {
+    return false;
+  }
+
+  @Override
+  public boolean canReceive() {
+    return true;
   }
 }

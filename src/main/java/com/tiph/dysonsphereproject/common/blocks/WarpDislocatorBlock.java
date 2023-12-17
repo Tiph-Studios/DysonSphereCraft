@@ -1,6 +1,6 @@
 package com.tiph.dysonsphereproject.common.blocks;
 
-import com.tiph.dysonsphereproject.common.blocks.entities.warpdislocator.WarpDislocatorBlockEntity;
+import com.tiph.dysonsphereproject.common.blocks.entities.WarpDislocatorBlockEntity;
 import com.tiph.dysonsphereproject.common.init.DysonBlockEntities;
 import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;

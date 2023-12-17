@@ -1,10 +1,8 @@
 package com.tiph.dysonsphereproject.common.blocks.entities;
 
 import com.tiph.dysonsphereproject.common.init.DysonBlockEntities;
-import com.tiph.dysonsphereproject.util.DysonEnergyStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
@@ -19,8 +17,11 @@ import net.neoforged.neoforge.energy.IEnergyStorage;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class SolarGeneratorBlockEntity extends DysonBlockEntity implements MenuProvider {
-  private final DysonEnergyStorage energyStorage = new DysonEnergyStorage(100_000, 0, 20);
+public class SolarGeneratorBlockEntity extends DysonEnergyBlockEntity implements MenuProvider {
+
+  private static final int MAX_CAPACITY = 100_000;
+  private static final int MAX_RECEIVE = 4;
+  private static final int MAX_EXTRACT = 20;
 
   private LazyOptional<IEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
 
@@ -40,7 +41,7 @@ public class SolarGeneratorBlockEntity extends DysonBlockEntity implements MenuP
   @Override
   public void onLoad() {
     super.onLoad();
-    lazyEnergyHandler = LazyOptional.of(() -> energyStorage);
+    lazyEnergyHandler = LazyOptional.of(() -> this);
   }
 
   @Override
@@ -61,22 +62,36 @@ public class SolarGeneratorBlockEntity extends DysonBlockEntity implements MenuP
     return null;
   }
 
-  @Override
-  protected void saveAdditional(CompoundTag compoundTag) {
-    compoundTag.putInt("energy", energyStorage.getEnergyStored());
-    super.saveAdditional(compoundTag);
-  }
-
-  @Override
-  public void load(CompoundTag compoundTag) {
-    energyStorage.deserializeNBT(compoundTag.get("energy"));
-    super.load(compoundTag);
-  }
-
   public void tick(final Level level, final BlockPos pos, final BlockState blockState) {
     if (level.isDay() && level.canSeeSky(pos)) {
-      energyStorage.receiveEnergy(4, false);
+      this.receiveEnergy(MAX_RECEIVE, false);
       setChanged(level, pos, blockState);
     }
+  }
+
+  @Override
+  int getMaxExtract() {
+    return MAX_EXTRACT;
+  }
+
+  @Override
+  int getMaxReceive() {
+    return MAX_RECEIVE;
+  }
+
+  @Override
+  public int getMaxEnergyStored() {
+    return MAX_CAPACITY;
+  }
+
+  @Override
+  public boolean canExtract() {
+    // todo do I need to check if there is power available to return true?
+    return true;
+  }
+
+  @Override
+  public boolean canReceive() {
+    return false;
   }
 }
