@@ -86,7 +86,6 @@ public class SolarGeneratorBlockEntity extends DysonEnergyBlockEntity implements
 
   @Override
   public boolean canExtract() {
-    // todo do I need to check if there is power available to return true?
     return true;
   }
 

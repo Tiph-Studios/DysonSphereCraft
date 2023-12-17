@@ -145,7 +145,6 @@ public class WarpDislocatorBlockEntity extends DysonEnergyBlockEntity implements
   }
 
   private void fireCollector(final Level level) {
-    // todo investigate level.isClientSide. pretty sure we just ignore client stuff here
     if (level.isClientSide) {
       return;
     }
