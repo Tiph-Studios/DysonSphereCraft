@@ -1,18 +1,24 @@
 package com.tiph.dysonsphereproject.common.blocks.entities;
 
+import com.tiph.dysonsphereproject.DysonSphereProject;
 import com.tiph.dysonsphereproject.common.init.DysonBlockEntities;
 import com.tiph.dysonsphereproject.common.init.DysonItems;
 import com.tiph.dysonsphereproject.common.items.BasicItems;
+import com.tiph.dysonsphereproject.util.OrbitalCollectorSavedData;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.saveddata.SavedData;
 import net.neoforged.neoforge.common.capabilities.Capabilities;
 import net.neoforged.neoforge.common.capabilities.Capability;
 import net.neoforged.neoforge.common.util.LazyOptional;
@@ -97,6 +103,15 @@ public class WarpDislocatorBlockEntity extends DysonEnergyBlockEntity implements
     super.load(compoundTag);
   }
 
+  public void drops() {
+    final SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
+    for (int i = 0; i < itemHandler.getSlots(); i++) {
+      inventory.setItem(i, itemHandler.getStackInSlot(i));
+    }
+
+    Containers.dropContents(this.level, this.worldPosition, inventory);
+  }
+
   public void tick(final Level level, final BlockPos pos, final BlockState blockState) {
 
     if (!hasOrbitalCollector() || !hasRequiredEnergy()) {
@@ -126,7 +141,8 @@ public class WarpDislocatorBlockEntity extends DysonEnergyBlockEntity implements
   }
 
   private boolean hasRequiredEnergy() {
-    return this.getEnergyStored() >= FIRING_ENERGY_COST;
+//    return this.getEnergyStored() >= FIRING_ENERGY_COST;
+    return true;
   }
 
   private void fireCollector(final Level level) {
@@ -139,10 +155,28 @@ public class WarpDislocatorBlockEntity extends DysonEnergyBlockEntity implements
 
     // Register orbital collector in the world somehow
     // Or maybe in the future this is by player or by team or something
-    // todo get/save data to world
+    saveCollector(level);
 
     // Remove the orbital collector
     itemHandler.extractItem(INPUT_SLOT, 1, false);
+  }
+
+  void saveCollector(final Level level) {
+
+    if (level instanceof ServerLevel serverLevel) {
+      final OrbitalCollectorSavedData data =
+          serverLevel
+              .getDataStorage()
+              .computeIfAbsent(
+                  // This looks funny. Those are 2 different constructors.
+                  // One is the initial constructor if no save exists,
+                  // and the other deserializes from an existing tag.
+                  new SavedData.Factory<>(
+                      OrbitalCollectorSavedData::new, OrbitalCollectorSavedData::new, null),
+                  DysonSphereProject.MODID);
+
+      data.addCollector();
+    }
   }
 
   @Override

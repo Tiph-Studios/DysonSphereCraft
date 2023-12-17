@@ -56,4 +56,22 @@ public class WarpDislocatorBlock extends BaseEntityBlock {
         DysonBlockEntities.WARP_DISLOCATOR_ENTITY.get(),
         (level1, pos, blockState1, blockEntity) -> blockEntity.tick(level1, pos, blockState1));
   }
+
+  @Override
+  public void onRemove(
+      BlockState blockState,
+      @NotNull Level level,
+      @NotNull BlockPos blockPos,
+      BlockState newState,
+      boolean isMoving) {
+
+    if (blockState.getBlock() != newState.getBlock()) {
+      final BlockEntity blockEntity = level.getBlockEntity(blockPos);
+      if (blockEntity instanceof WarpDislocatorBlockEntity warpDislocatorBlockEntity) {
+        warpDislocatorBlockEntity.drops();
+      }
+    }
+
+    super.onRemove(blockState, level, blockPos, newState, isMoving);
+  }
 }
