@@ -1,4 +1,4 @@
-package com.tiph.dysonsphereproject.common.blocks.entities.warpdislocator;
+package com.tiph.dysonsphereproject.common.blocks.entities;
 
 import com.tiph.dysonsphereproject.common.init.DysonItems;
 import com.tiph.dysonsphereproject.common.items.BasicItems;

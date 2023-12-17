@@ -1,6 +1,7 @@
 package com.tiph.dysonsphereproject.common.blocks;
 
-import com.tiph.dysonsphereproject.common.blocks.entities.warpdislocator.WarpDislocatorBlockEntity;
+import com.tiph.dysonsphereproject.common.blocks.entities.GroundStationBlockEntity;
+import com.tiph.dysonsphereproject.common.init.DysonBlockEntities;
 import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
@@ -30,12 +31,12 @@ public class GroundStationBlock extends BaseEntityBlock {
 
   @Nullable
   @Override
-  public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-    return new WarpDislocatorBlockEntity(pos, state);
+  public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
+    return new GroundStationBlockEntity(pos, state);
   }
 
   @Override
-  public RenderShape getRenderShape(BlockState blockState) {
+  public RenderShape getRenderShape(@NotNull BlockState blockState) {
     return RenderShape.MODEL;
   }
 
@@ -46,16 +47,13 @@ public class GroundStationBlock extends BaseEntityBlock {
       @NotNull BlockState blockState,
       @NotNull BlockEntityType<T> blockEntityType) {
 
-    return super.getTicker(level, blockState, blockEntityType);
+    if (level.isClientSide) {
+      return null;
+    }
 
-    //    if (level.isClientSide) {
-    //      return null;
-    //    }
-    //
-    //    return createTickerHelper(
-    //        blockEntityType,
-    //        DysonBlockEntities.GROUND_STATION_ENTITY.get(),
-    //        (level1, pos, blockState1, blockEntity) -> blockEntity.tick(level1, pos,
-    // blockState1));
+    return createTickerHelper(
+        blockEntityType,
+        DysonBlockEntities.GROUND_STATION_ENTITY.get(),
+        (level1, pos, blockState1, blockEntity) -> blockEntity.tick(level1, pos, blockState1));
   }
 }

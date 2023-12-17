@@ -1,6 +1,6 @@
 package com.tiph.dysonsphereproject.common.blocks;
 
-import com.tiph.dysonsphereproject.common.blocks.entities.warpdislocator.WarpDislocatorBlockEntity;
+import com.tiph.dysonsphereproject.common.blocks.entities.WarpDislocatorBlockEntity;
 import com.tiph.dysonsphereproject.common.init.DysonBlockEntities;
 import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
@@ -55,5 +55,23 @@ public class WarpDislocatorBlock extends BaseEntityBlock {
         blockEntityType,
         DysonBlockEntities.WARP_DISLOCATOR_ENTITY.get(),
         (level1, pos, blockState1, blockEntity) -> blockEntity.tick(level1, pos, blockState1));
+  }
+
+  @Override
+  public void onRemove(
+      BlockState blockState,
+      @NotNull Level level,
+      @NotNull BlockPos blockPos,
+      BlockState newState,
+      boolean isMoving) {
+
+    if (blockState.getBlock() != newState.getBlock()) {
+      final BlockEntity blockEntity = level.getBlockEntity(blockPos);
+      if (blockEntity instanceof WarpDislocatorBlockEntity warpDislocatorBlockEntity) {
+        warpDislocatorBlockEntity.drops();
+      }
+    }
+
+    super.onRemove(blockState, level, blockPos, newState, isMoving);
   }
 }
