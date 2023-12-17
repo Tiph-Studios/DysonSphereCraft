@@ -141,8 +141,7 @@ public class WarpDislocatorBlockEntity extends DysonEnergyBlockEntity implements
   }
 
   private boolean hasRequiredEnergy() {
-//    return this.getEnergyStored() >= FIRING_ENERGY_COST;
-    return true;
+    return this.getEnergyStored() >= FIRING_ENERGY_COST;
   }
 
   private void fireCollector(final Level level) {
@@ -151,18 +150,16 @@ public class WarpDislocatorBlockEntity extends DysonEnergyBlockEntity implements
       return;
     }
 
-    //    if (level.)
-
-    // Register orbital collector in the world somehow
-    // Or maybe in the future this is by player or by team or something
+    // Register orbital collector in the DIMENSION
+    // CURRENTLY ORBITAL COLLECTORS CAN BE SENT IN ANY DIMENSION
+    // In the future we may want to save this to be by player/team
     saveCollector(level);
 
-    // Remove the orbital collector
+    // Remove the orbital collector from the block
     itemHandler.extractItem(INPUT_SLOT, 1, false);
   }
 
   void saveCollector(final Level level) {
-
     if (level instanceof ServerLevel serverLevel) {
       final OrbitalCollectorSavedData data =
           serverLevel
