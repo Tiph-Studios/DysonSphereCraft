@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class SolarGeneratorBlockEntity extends DysonBlockEntity implements MenuProvider {
-  private DysonEnergyStorage energyStorage = new DysonEnergyStorage(100_000, 0, 20);
+  private final DysonEnergyStorage energyStorage = new DysonEnergyStorage(100_000, 0, 20);
 
   private LazyOptional<IEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
 
@@ -50,13 +50,14 @@ public class SolarGeneratorBlockEntity extends DysonBlockEntity implements MenuP
   }
 
   @Override
-  public Component getDisplayName() {
+  public @NotNull Component getDisplayName() {
     return Component.translatable("block.dysonsphereproject.solar_generator");
   }
 
   @Nullable
   @Override
-  public AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
+  public AbstractContainerMenu createMenu(
+      int i, @NotNull Inventory inventory, @NotNull Player player) {
     return null;
   }
 
@@ -73,7 +74,7 @@ public class SolarGeneratorBlockEntity extends DysonBlockEntity implements MenuP
   }
 
   public void tick(final Level level, final BlockPos pos, final BlockState blockState) {
-    if (level.isDay()) {
+    if (level.isDay() && level.canSeeSky(pos)) {
       energyStorage.receiveEnergy(4, false);
       setChanged(level, pos, blockState);
     }

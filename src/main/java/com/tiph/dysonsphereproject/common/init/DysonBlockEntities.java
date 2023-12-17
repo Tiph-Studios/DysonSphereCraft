@@ -6,7 +6,7 @@ import com.tiph.dysonsphereproject.common.blocks.SolarGeneratorBlock;
 import com.tiph.dysonsphereproject.common.blocks.WarpDislocatorBlock;
 import com.tiph.dysonsphereproject.common.blocks.entities.GroundStationBlockEntity;
 import com.tiph.dysonsphereproject.common.blocks.entities.SolarGeneratorBlockEntity;
-import com.tiph.dysonsphereproject.common.blocks.entities.WarpDislocatorBlockEntity;
+import com.tiph.dysonsphereproject.common.blocks.entities.warpdislocator.WarpDislocatorBlockEntity;
 import java.util.function.Supplier;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;

@@ -1,7 +1,6 @@
 package com.tiph.dysonsphereproject.common.blocks;
 
-import com.tiph.dysonsphereproject.common.blocks.entities.WarpDislocatorBlockEntity;
-import com.tiph.dysonsphereproject.common.init.DysonBlockEntities;
+import com.tiph.dysonsphereproject.common.blocks.entities.warpdislocator.WarpDislocatorBlockEntity;
 import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
@@ -47,13 +46,16 @@ public class GroundStationBlock extends BaseEntityBlock {
       @NotNull BlockState blockState,
       @NotNull BlockEntityType<T> blockEntityType) {
 
-    if (level.isClientSide) {
-      return null;
-    }
+    return super.getTicker(level, blockState, blockEntityType);
 
-    return createTickerHelper(
-        blockEntityType,
-        DysonBlockEntities.SOLAR_GENERATOR_ENTITY.get(),
-        (level1, pos, blockState1, blockEntity) -> blockEntity.tick(level1, pos, blockState1));
+    //    if (level.isClientSide) {
+    //      return null;
+    //    }
+    //
+    //    return createTickerHelper(
+    //        blockEntityType,
+    //        DysonBlockEntities.GROUND_STATION_ENTITY.get(),
+    //        (level1, pos, blockState1, blockEntity) -> blockEntity.tick(level1, pos,
+    // blockState1));
   }
 }
