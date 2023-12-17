@@ -61,6 +61,16 @@ public class DysonSphereProject {
     // Some common setup code
     LOGGER.info("HELLO FROM COMMON SETUP");
 
+    final String REALLY_BIG_RABBIT = """
+
+    (\\(\\
+    (-.-)
+    o_(")(")
+    """;
+
+    LOGGER.info("REALLY BIG RABBIT: ");
+    LOGGER.info(REALLY_BIG_RABBIT);
+
     if (Config.logDirtBlock)
       LOGGER.info("DIRT BLOCK >> {}", BuiltInRegistries.BLOCK.getKey(Blocks.DIRT));
 

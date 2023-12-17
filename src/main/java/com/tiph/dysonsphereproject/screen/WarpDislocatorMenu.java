@@ -1,6 +1,6 @@
 package com.tiph.dysonsphereproject.screen;
 
-import com.tiph.dysonsphereproject.common.blocks.entities.warpdislocator.WarpDislocatorBlockEntity;
+import com.tiph.dysonsphereproject.common.blocks.entities.WarpDislocatorBlockEntity;
 import com.tiph.dysonsphereproject.common.init.DysonBlocks;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
