@@ -1,6 +1,5 @@
 package com.tiph.dysonsphereproject.common.blocks.entities;
 
-import com.tiph.dysonsphereproject.DysonSphereProject;
 import com.tiph.dysonsphereproject.common.init.DysonBlockEntities;
 import com.tiph.dysonsphereproject.common.init.DysonItems;
 import com.tiph.dysonsphereproject.common.items.BasicItems;
@@ -18,7 +17,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.saveddata.SavedData;
 import net.neoforged.neoforge.common.capabilities.Capabilities;
 import net.neoforged.neoforge.common.capabilities.Capability;
 import net.neoforged.neoforge.common.util.LazyOptional;
@@ -160,16 +158,7 @@ public class WarpDislocatorBlockEntity extends DysonEnergyBlockEntity implements
   void saveCollector(final Level level) {
     if (level instanceof ServerLevel serverLevel) {
       final OrbitalCollectorSavedData data =
-          serverLevel
-              .getDataStorage()
-              .computeIfAbsent(
-                  // This looks funny. Those are 2 different constructors.
-                  // One is the initial constructor if no save exists,
-                  // and the other deserializes from an existing tag.
-                  new SavedData.Factory<>(
-                      OrbitalCollectorSavedData::new, OrbitalCollectorSavedData::new, null),
-                  DysonSphereProject.MODID);
-
+          OrbitalCollectorSavedData.getOrbitalCollectorData(serverLevel);
       data.addCollector();
     }
   }

@@ -22,7 +22,8 @@ public abstract class DysonEnergyBlockEntity extends DysonBlockEntity implements
     } else {
       int energyReceived =
           Math.min(
-              this.getMaxEnergyStored() - this.energy, Math.min(this.getMaxReceive(), receiveAmount));
+              this.getMaxEnergyStored() - this.energy,
+              Math.min(this.getMaxReceive(), receiveAmount));
       if (!simulate) {
         this.energy += energyReceived;
       }

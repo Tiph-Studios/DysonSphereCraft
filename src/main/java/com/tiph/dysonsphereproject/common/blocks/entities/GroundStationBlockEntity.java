@@ -1,13 +1,11 @@
 package com.tiph.dysonsphereproject.common.blocks.entities;
 
-import com.tiph.dysonsphereproject.DysonSphereProject;
 import com.tiph.dysonsphereproject.common.init.DysonBlockEntities;
 import com.tiph.dysonsphereproject.util.OrbitalCollectorSavedData;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.saveddata.SavedData;
 
 public class GroundStationBlockEntity extends DysonEnergyBlockEntity {
 
@@ -42,16 +40,7 @@ public class GroundStationBlockEntity extends DysonEnergyBlockEntity {
   private int getCollectors(final Level level) {
     if (level instanceof ServerLevel serverLevel) {
       final OrbitalCollectorSavedData data =
-          serverLevel
-              .getDataStorage()
-              .computeIfAbsent(
-                  // This looks funny. Those are 2 different constructors.
-                  // One is the initial constructor if no save exists,
-                  // and the other deserializes from an existing tag.
-                  new SavedData.Factory<>(
-                      OrbitalCollectorSavedData::new, OrbitalCollectorSavedData::new, null),
-                  DysonSphereProject.MODID);
-
+          OrbitalCollectorSavedData.getOrbitalCollectorData(serverLevel);
       return data.getNumCollectors();
     }
 
@@ -86,6 +75,6 @@ public class GroundStationBlockEntity extends DysonEnergyBlockEntity {
 
   @Override
   public boolean canReceive() {
-    return false;
+    return true;
   }
 }

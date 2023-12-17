@@ -92,6 +92,6 @@ public class SolarGeneratorBlockEntity extends DysonEnergyBlockEntity implements
 
   @Override
   public boolean canReceive() {
-    return false;
+    return true;
   }
 }

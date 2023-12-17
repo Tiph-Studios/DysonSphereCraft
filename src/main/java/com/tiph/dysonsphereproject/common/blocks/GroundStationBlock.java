@@ -1,6 +1,6 @@
 package com.tiph.dysonsphereproject.common.blocks;
 
-import com.tiph.dysonsphereproject.common.blocks.entities.WarpDislocatorBlockEntity;
+import com.tiph.dysonsphereproject.common.blocks.entities.GroundStationBlockEntity;
 import com.tiph.dysonsphereproject.common.init.DysonBlockEntities;
 import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
@@ -32,7 +32,7 @@ public class GroundStationBlock extends BaseEntityBlock {
   @Nullable
   @Override
   public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
-    return new WarpDislocatorBlockEntity(pos, state);
+    return new GroundStationBlockEntity(pos, state);
   }
 
   @Override
