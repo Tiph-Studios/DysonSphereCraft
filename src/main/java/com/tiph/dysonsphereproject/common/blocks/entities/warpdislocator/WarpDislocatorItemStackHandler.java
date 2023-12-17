@@ -8,15 +8,15 @@ import org.jetbrains.annotations.NotNull;
 
 public class WarpDislocatorItemStackHandler extends ItemStackHandler {
 
-    public WarpDislocatorItemStackHandler(int size) {
-        super(size);
-    }
+  public WarpDislocatorItemStackHandler(int size) {
+    super(size);
+  }
 
-    @Override
-    public boolean isItemValid(int slot, @NotNull ItemStack stack) {
-        if (stack.getItem() != DysonItems.getBasicItem(BasicItems.ORBITAL_COLLECTOR).get()) {
-            return false;
-        }
-        return super.isItemValid(slot, stack);
+  @Override
+  public boolean isItemValid(int slot, @NotNull ItemStack stack) {
+    if (stack.getItem() != DysonItems.getBasicItem(BasicItems.ORBITAL_COLLECTOR).get()) {
+      return false;
     }
+    return super.isItemValid(slot, stack);
+  }
 }

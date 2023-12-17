@@ -5,11 +5,11 @@ import net.minecraft.world.level.saveddata.SavedData;
 
 public class OrbitalCollectorSavedData extends SavedData {
 
-    private int numCollectors;
+  private int numCollectors;
 
-    @Override
-    public CompoundTag save(CompoundTag compoundTag) {
-        compoundTag.putInt("numOrbitalCollectors", numCollectors);
-        return compoundTag;
-    }
+  @Override
+  public CompoundTag save(CompoundTag compoundTag) {
+    compoundTag.putInt("numOrbitalCollectors", numCollectors);
+    return compoundTag;
+  }
 }

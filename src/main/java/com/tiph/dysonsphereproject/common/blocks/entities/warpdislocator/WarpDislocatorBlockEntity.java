@@ -113,7 +113,6 @@ public class WarpDislocatorBlockEntity extends DysonBlockEntity implements MenuP
       // todo - not sure how animations and sounds work
       //  but maybe we need to continue running them here
     }
-
   }
 
   private boolean hasOrbitalCollector() {
@@ -126,25 +125,20 @@ public class WarpDislocatorBlockEntity extends DysonBlockEntity implements MenuP
   }
 
   private void fireCollector(final Level level) {
-    //todo investigate level.isClientSide. pretty sure we just ignore client stuff here
+    // todo investigate level.isClientSide. pretty sure we just ignore client stuff here
     if (level.isClientSide) {
       return;
     }
 
-//    if (level.)
-
-
+    //    if (level.)
 
     // Register orbital collector in the world somehow
     // Or maybe in the future this is by player or by team or something
-    //todo get/save data to world
-
+    // todo get/save data to world
 
     // Remove the orbital collector
     itemHandler.extractItem(INPUT_SLOT, 1, false);
   }
-
-
 
   @Override
   public @NotNull Component getDisplayName() {
