@@ -76,8 +76,7 @@ public class SolarGeneratorBlockEntity extends DysonEnergyBlockEntity implements
 
   @Override
   int getMaxReceive() {
-    // Should not receive energy from other sources.
-    return 0;
+    return GENERATION_AMOUNT;
   }
 
   @Override
