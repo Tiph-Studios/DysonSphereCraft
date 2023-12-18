@@ -30,7 +30,8 @@ public class GroundStationBlockEntity extends DysonEnergyBlockEntity {
   }
 
   @Override
-  public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+  public @NotNull <T> LazyOptional<T> getCapability(
+      @NotNull Capability<T> cap, @Nullable Direction side) {
     if (cap == Capabilities.ENERGY && side != Direction.UP) {
       return lazyEnergyHandler.cast();
     }
