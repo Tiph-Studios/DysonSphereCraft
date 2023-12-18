@@ -2,13 +2,8 @@
   "block.dysonsphereproject.solar_generator": "Solgenerator",
   "block.dysonsphereproject.ground_station": "Markstation",
   "block.dysonsphereproject.warp_dislocator": "Böjförflyttaren",
-
   "tooltip.dysonspherecraft.solar_generator.tooltip": "Genererar %1$s FE/t",
-
   "item.dysonsphereproject.mirror": "Spegel",
   "item.dysonsphereproject.orbital_collector": "Omloppssamlare",
-
   "creativetab.dsp_tab": "Dysonssfärprojekt"
-
-
 }
