@@ -8,15 +8,41 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.capabilities.Capabilities;
+import net.neoforged.neoforge.common.capabilities.Capability;
+import net.neoforged.neoforge.common.util.LazyOptional;
 import net.neoforged.neoforge.energy.IEnergyStorage;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public abstract class DysonEnergyBlockEntity extends DysonBlockEntity implements IEnergyStorage {
-
+  
   protected int energy;
+  private LazyOptional<IEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
 
   protected DysonEnergyBlockEntity(BlockEntityType<?> entityType, BlockPos pos, BlockState state) {
     super(entityType, pos, state);
     energy = 0;
+  }
+
+  @Override
+  public @NotNull <T> LazyOptional<T> getCapability(
+      @NotNull Capability<T> cap, @Nullable Direction side) {
+    if (cap == Capabilities.ENERGY && side != Direction.UP) {
+      return lazyEnergyHandler.cast();
+    }
+    return super.getCapability(cap, side);
+  }
+
+  @Override
+  public void onLoad() {
+    super.onLoad();
+    lazyEnergyHandler = LazyOptional.of(() -> this);
+  }
+
+  @Override
+  public void invalidateCaps() {
+    super.invalidateCaps();
+    lazyEnergyHandler.invalidate();
   }
 
   @Override
