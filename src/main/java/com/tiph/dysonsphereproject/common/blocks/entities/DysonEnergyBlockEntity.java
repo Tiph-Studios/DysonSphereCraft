@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class DysonEnergyBlockEntity extends DysonBlockEntity implements IEnergyStorage {
-  
+
   protected int energy;
   private LazyOptional<IEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
 
@@ -101,15 +101,18 @@ public abstract class DysonEnergyBlockEntity extends DysonBlockEntity implements
       }
       BlockEntity be = level.getBlockEntity(getBlockPos().relative(direction));
       if (be != null) {
-        be.getCapability(Capabilities.ENERGY).map(e -> {
-          if (e.canReceive()) {
-            int received = e.receiveEnergy(Math.min(this.energy, this.getMaxExtract()), false);
-            this.extractEnergy(received, false);
-            setChanged();
-            return received;
-          }
-          return 0;
-        });
+        be.getCapability(Capabilities.ENERGY)
+            .map(
+                e -> {
+                  if (e.canReceive()) {
+                    int received =
+                        e.receiveEnergy(Math.min(this.energy, this.getMaxExtract()), false);
+                    this.extractEnergy(received, false);
+                    setChanged();
+                    return received;
+                  }
+                  return 0;
+                });
       }
     }
   }
