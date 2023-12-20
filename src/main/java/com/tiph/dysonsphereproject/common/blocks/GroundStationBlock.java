@@ -47,6 +47,6 @@ public class GroundStationBlock extends DysonEntityBlock {
     return createTickerHelper(
         blockEntityType,
         DysonBlockEntities.GROUND_STATION_ENTITY.get(),
-        (level1, pos, blockState1, blockEntity) -> blockEntity.tick(level1, pos, blockState1));
+        (level1, pos, blockState1, blockEntity) -> blockEntity.tick(level1));
   }
 }

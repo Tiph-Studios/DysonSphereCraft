@@ -20,8 +20,12 @@ public class GroundStationBlockEntity extends DysonEnergyBlockEntity {
     super(DysonBlockEntities.GROUND_STATION_ENTITY.get(), pos, state);
   }
 
-  public void tick(final Level level, final BlockPos pos, final BlockState blockState) {
+  public void tick(final Level level) {
+    generateEnergy(level);
+    distributeEnergy(level);
+  }
 
+  private void generateEnergy(final Level level) {
     if (level.isClientSide) {
       return;
     }
@@ -33,7 +37,7 @@ public class GroundStationBlockEntity extends DysonEnergyBlockEntity {
     final boolean changed = generatePower(numCollectors);
 
     if (changed) {
-      setChanged(level, pos, blockState);
+      setChanged();
     }
   }
 

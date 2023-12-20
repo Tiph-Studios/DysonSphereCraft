@@ -62,10 +62,15 @@ public class SolarGeneratorBlockEntity extends DysonEnergyBlockEntity implements
     return null;
   }
 
-  public void tick(final Level level, final BlockPos pos, final BlockState blockState) {
-    if (level.isDay() && level.canSeeSky(pos)) {
+  public void tick(final Level level) {
+    generateEnergy(level);
+    distributeEnergy(level);
+  }
+
+  private void generateEnergy(final Level level) {
+    if (level.isDay() && level.canSeeSky(getBlockPos())) {
       this.receiveEnergy(GENERATION_AMOUNT, false);
-      setChanged(level, pos, blockState);
+      setChanged();
     }
   }
 
