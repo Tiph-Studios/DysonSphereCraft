@@ -22,7 +22,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.capabilities.Capabilities;
 import net.neoforged.neoforge.common.capabilities.Capability;
 import net.neoforged.neoforge.common.util.LazyOptional;
-import net.neoforged.neoforge.energy.IEnergyStorage;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
@@ -35,8 +34,6 @@ public class WarpDislocatorBlockEntity extends DysonEnergyBlockEntity implements
   //
   private static final int MAX_CAPACITY = 100_000;
   private static final int MAX_RECEIVE = 500;
-
-  private LazyOptional<IEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
   private static final int FIRING_ENERGY_COST = 50_000;
 
   //
@@ -55,15 +52,7 @@ public class WarpDislocatorBlockEntity extends DysonEnergyBlockEntity implements
   public @NotNull <T> LazyOptional<T> getCapability(
       @NotNull Capability<T> cap, @Nullable Direction side) {
 
-    if (side == Direction.UP) {
-      return super.getCapability(cap, side);
-    }
-
-    if (cap == Capabilities.ENERGY) {
-      return lazyEnergyHandler.cast();
-    }
-
-    if (cap == Capabilities.ITEM_HANDLER) {
+    if (cap == Capabilities.ITEM_HANDLER && side != Direction.UP) {
       return lazyItemHandler.cast();
     }
 
@@ -77,14 +66,12 @@ public class WarpDislocatorBlockEntity extends DysonEnergyBlockEntity implements
   @Override
   public void onLoad() {
     super.onLoad();
-    lazyEnergyHandler = LazyOptional.of(() -> this);
     lazyItemHandler = LazyOptional.of(() -> itemHandler);
   }
 
   @Override
   public void invalidateCaps() {
     super.invalidateCaps();
-    lazyEnergyHandler.invalidate();
     lazyItemHandler.invalidate();
   }
 
