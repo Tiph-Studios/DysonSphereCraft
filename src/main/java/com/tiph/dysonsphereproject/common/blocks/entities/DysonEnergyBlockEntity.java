@@ -62,6 +62,14 @@ public abstract class DysonEnergyBlockEntity extends DysonBlockEntity implements
     }
   }
 
+  protected void generateEnergy(int generateAmount) {
+    int energyToAdd = Math.min((this.getMaxEnergyStored() - this.energy), generateAmount);
+    if (energyToAdd > 0) {
+      energy += energyToAdd;
+      setChanged();
+    }
+  }
+
   @Override
   public int extractEnergy(int extractAmount, boolean simulate) {
     if (!this.canExtract()) {

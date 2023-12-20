@@ -10,7 +10,6 @@ import net.minecraft.world.level.block.state.BlockState;
 public class GroundStationBlockEntity extends DysonEnergyBlockEntity {
 
   private static final int MAX_CAPACITY = 100_000;
-  private static final int MAX_RECEIVE = Integer.MAX_VALUE;
   private static final int MAX_EXTRACT = Integer.MAX_VALUE;
 
   // Could have different kinds of orbital collectors with different power gen
@@ -34,11 +33,7 @@ public class GroundStationBlockEntity extends DysonEnergyBlockEntity {
     final int numCollectors = getCollectors(level);
 
     // Generate power based on # collectors
-    final boolean changed = generatePower(numCollectors);
-
-    if (changed) {
-      setChanged();
-    }
+    generatePower(numCollectors);
   }
 
   private int getCollectors(final Level level) {
@@ -51,10 +46,9 @@ public class GroundStationBlockEntity extends DysonEnergyBlockEntity {
     return 0;
   }
 
-  boolean generatePower(final int numCollectors) {
+  void generatePower(final int numCollectors) {
     final int powerGen = numCollectors * COLLECTOR_POWER_GEN;
-    receiveEnergy(powerGen, false);
-    return powerGen != 0;
+    generateEnergy(powerGen);
   }
 
   @Override
@@ -64,12 +58,7 @@ public class GroundStationBlockEntity extends DysonEnergyBlockEntity {
 
   @Override
   int getMaxReceive() {
-    return MAX_RECEIVE;
-  }
-
-  @Override
-  public int getMaxEnergyStored() {
-    return MAX_CAPACITY;
+    return 0;
   }
 
   @Override
@@ -79,6 +68,11 @@ public class GroundStationBlockEntity extends DysonEnergyBlockEntity {
 
   @Override
   public boolean canReceive() {
-    return true;
+    return false;
+  }
+
+  @Override
+  public int getMaxEnergyStored() {
+    return MAX_CAPACITY;
   }
 }
