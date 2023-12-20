@@ -1,5 +1,3 @@
 package com.tiph.dysonsphereproject.mixins;
 
-public class TestMixin {
-
-}
+public class TestMixin {}

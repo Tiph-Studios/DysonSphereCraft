@@ -9,8 +9,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseEntityBlock;
-import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -19,7 +17,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.neoforged.neoforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 
-public class WarpDislocatorBlock extends BaseEntityBlock {
+public class WarpDislocatorBlock extends DysonEntityBlock {
   private static final String REGISTRY_SUFFIX = "warp_dislocator";
   private static final float DESTROY_TIME = 2.0f;
 
@@ -59,11 +57,6 @@ public class WarpDislocatorBlock extends BaseEntityBlock {
     }
 
     return InteractionResult.sidedSuccess(level.isClientSide);
-  }
-
-  @Override
-  public RenderShape getRenderShape(BlockState blockState) {
-    return RenderShape.MODEL;
   }
 
   @Nullable

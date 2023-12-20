@@ -5,15 +5,13 @@ import com.tiph.dysonsphereproject.common.init.DysonBlockEntities;
 import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseEntityBlock;
-import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
-public class GroundStationBlock extends BaseEntityBlock {
+public class GroundStationBlock extends DysonEntityBlock {
   private static final String REGISTRY_SUFFIX = "ground_station";
   private static final float DESTROY_TIME = 2.0f;
 
@@ -33,11 +31,6 @@ public class GroundStationBlock extends BaseEntityBlock {
   @Override
   public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
     return new GroundStationBlockEntity(pos, state);
-  }
-
-  @Override
-  public RenderShape getRenderShape(@NotNull BlockState blockState) {
-    return RenderShape.MODEL;
   }
 
   @Nullable
