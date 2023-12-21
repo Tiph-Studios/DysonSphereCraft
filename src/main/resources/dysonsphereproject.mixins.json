@@ -1,10 +1,10 @@
 {
   "package": "com.tiph.dysonsphereproject.mixins",
   "mixins": [
-    "TestMixin"
+    "OverworldSkyMixin"
   ],
   "client": [
-    "TestMixin"
+    "OverworldSkyMixin"
   ],
   "server": [],
   "required": true,
