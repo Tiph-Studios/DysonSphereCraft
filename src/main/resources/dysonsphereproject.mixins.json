@@ -1,0 +1,15 @@
+{
+  "package": "com.tiph.dysonsphereproject.mixins",
+  "mixins": [
+    "OverworldSkyMixin"
+  ],
+  "client": [
+    "OverworldSkyMixin"
+  ],
+  "server": [],
+  "required": true,
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "compatibilityLevel": "JAVA_17"
+}

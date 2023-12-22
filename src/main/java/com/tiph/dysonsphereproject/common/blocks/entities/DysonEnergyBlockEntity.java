@@ -3,6 +3,8 @@ package com.tiph.dysonsphereproject.common.blocks.entities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.capabilities.Capabilities;
@@ -14,7 +16,7 @@ import org.jetbrains.annotations.Nullable;
 
 public abstract class DysonEnergyBlockEntity extends DysonBlockEntity implements IEnergyStorage {
 
-  private int energy;
+  protected int energy;
   private LazyOptional<IEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
 
   protected DysonEnergyBlockEntity(BlockEntityType<?> entityType, BlockPos pos, BlockState state) {
@@ -60,6 +62,14 @@ public abstract class DysonEnergyBlockEntity extends DysonBlockEntity implements
     }
   }
 
+  protected void generateEnergy(int generateAmount) {
+    int energyToAdd = Math.min((this.getMaxEnergyStored() - this.energy), generateAmount);
+    if (energyToAdd > 0) {
+      energy += energyToAdd;
+      setChanged();
+    }
+  }
+
   @Override
   public int extractEnergy(int extractAmount, boolean simulate) {
     if (!this.canExtract()) {
@@ -89,6 +99,30 @@ public abstract class DysonEnergyBlockEntity extends DysonBlockEntity implements
   public void load(CompoundTag tag) {
     this.energy = tag.getInt("energy");
     super.load(tag);
+  }
+
+  protected void distributeEnergy(final Level level) {
+    // Check all sides of the block and send energy if that block supports the energy capability
+    for (Direction direction : Direction.values()) {
+      if (this.energy <= 0) {
+        return;
+      }
+      BlockEntity be = level.getBlockEntity(getBlockPos().relative(direction));
+      if (be != null) {
+        be.getCapability(Capabilities.ENERGY)
+            .map(
+                e -> {
+                  if (e.canReceive()) {
+                    int received =
+                        e.receiveEnergy(Math.min(this.energy, this.getMaxExtract()), false);
+                    this.extractEnergy(received, false);
+                    setChanged();
+                    return received;
+                  }
+                  return 0;
+                });
+      }
+    }
   }
 
   abstract int getMaxExtract();

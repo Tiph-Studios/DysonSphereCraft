@@ -13,9 +13,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -25,7 +23,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-public class SolarGeneratorBlock extends BaseEntityBlock {
+public class SolarGeneratorBlock extends DysonEntityBlock {
   private static final String REGISTRY_SUFFIX = "solar_generator";
   private static final float DESTROY_TIME = 2.0f;
   private static final VoxelShape SHAPE = Block.box(0, 0, 0, 16.0, 8.0, 16.0);
@@ -63,11 +61,6 @@ public class SolarGeneratorBlock extends BaseEntityBlock {
       @NotNull BlockPos blockPos,
       @NotNull CollisionContext collisionContext) {
     return SHAPE;
-  }
-
-  @Override
-  public RenderShape getRenderShape(BlockState blockState) {
-    return RenderShape.MODEL;
   }
 
   @Nullable
@@ -112,6 +105,6 @@ public class SolarGeneratorBlock extends BaseEntityBlock {
     return createTickerHelper(
         blockEntityType,
         DysonBlockEntities.SOLAR_GENERATOR_ENTITY.get(),
-        (level1, pos, blockState1, blockEntity) -> blockEntity.tick(level1, pos, blockState1));
+        (level1, pos, blockState1, blockEntity) -> blockEntity.tick(level1));
   }
 }

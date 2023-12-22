@@ -38,10 +38,14 @@ public class SolarGeneratorBlockEntity extends DysonEnergyBlockEntity implements
     return null;
   }
 
-  public void tick(final Level level, final BlockPos pos, final BlockState blockState) {
-    if (level.isDay() && level.canSeeSky(pos)) {
-      this.receiveEnergy(GENERATION_AMOUNT, false);
-      setChanged(level, pos, blockState);
+  public void tick(final Level level) {
+    generateEnergy(level);
+    distributeEnergy(level);
+  }
+
+  private void generateEnergy(final Level level) {
+    if (level.isDay() && level.canSeeSky(getBlockPos())) {
+      generateEnergy(GENERATION_AMOUNT);
     }
   }
 
@@ -52,12 +56,7 @@ public class SolarGeneratorBlockEntity extends DysonEnergyBlockEntity implements
 
   @Override
   int getMaxReceive() {
-    return GENERATION_AMOUNT;
-  }
-
-  @Override
-  public int getMaxEnergyStored() {
-    return MAX_CAPACITY;
+    return 0;
   }
 
   @Override
@@ -67,6 +66,11 @@ public class SolarGeneratorBlockEntity extends DysonEnergyBlockEntity implements
 
   @Override
   public boolean canReceive() {
-    return true;
+    return false;
+  }
+
+  @Override
+  public int getMaxEnergyStored() {
+    return MAX_CAPACITY;
   }
 }
